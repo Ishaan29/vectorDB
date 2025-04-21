@@ -1,3 +1,44 @@
 {"level":"info","ts":"2025-04-21T04:42:00.821-0400","caller":"runtime/proc.go:267","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
 {"level":"info","ts":"2025-04-21T04:42:10.177-0400","caller":"runtime/asm_arm64.s:1197","msg":"Received signal","signal":"interrupt"}
 {"level":"info","ts":"2025-04-21T04:42:10.178-0400","caller":"runtime/proc.go:267","msg":"Shutting down..."}
+{"level":"info","ts":"2025-04-21T05:52:01.316-0400","caller":"runtime/proc.go:267","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
+{"level":"info","ts":"2025-04-21T05:52:01.316-0400","caller":"runtime/proc.go:267","msg":"Vector inserted successfully","id":"vec1","dimensions":3}
+{"level":"info","ts":"2025-04-21T05:52:10.562-0400","caller":"runtime/proc.go:267","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
+{"level":"error","ts":"2025-04-21T05:52:10.563-0400","caller":"runtime/proc.go:267","msg":"Search failed","error":"invalid vector dimensions","stacktrace":"runtime.main\n\t/usr/local/go/src/runtime/proc.go:267"}
+{"level":"info","ts":"2025-04-21T05:53:33.296-0400","caller":"runtime/proc.go:267","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
+{"level":"info","ts":"2025-04-21T05:53:33.297-0400","caller":"runtime/proc.go:267","msg":"Vector inserted successfully","id":"vec1","dimensions":3}
+{"level":"info","ts":"2025-04-21T05:53:42.487-0400","caller":"runtime/proc.go:267","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
+{"level":"info","ts":"2025-04-21T05:53:42.489-0400","caller":"runtime/proc.go:267","msg":"Vector inserted successfully","id":"vec1","dimensions":3}
+{"level":"info","ts":"2025-04-21T05:54:41.178-0400","caller":"runtime/proc.go:267","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
+{"level":"info","ts":"2025-04-21T05:54:41.179-0400","caller":"runtime/proc.go:267","msg":"Vector inserted successfully","id":"vec1","dimensions":3}
+{"level":"info","ts":"2025-04-21T05:54:45.488-0400","caller":"runtime/proc.go:267","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
+{"level":"info","ts":"2025-04-21T05:54:45.488-0400","caller":"runtime/proc.go:267","msg":"Vector inserted successfully","id":"vec2","dimensions":3}
+{"level":"info","ts":"2025-04-21T05:54:49.591-0400","caller":"runtime/proc.go:267","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
+{"level":"error","ts":"2025-04-21T05:54:49.591-0400","caller":"runtime/proc.go:267","msg":"Search failed","error":"invalid vector dimensions","stacktrace":"runtime.main\n\t/usr/local/go/src/runtime/proc.go:267"}
+{"level":"info","ts":"2025-04-21T05:55:10.817-0400","caller":"runtime/proc.go:267","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
+{"level":"error","ts":"2025-04-21T05:55:10.817-0400","caller":"runtime/proc.go:267","msg":"Search failed","error":"no results found","stacktrace":"runtime.main\n\t/usr/local/go/src/runtime/proc.go:267"}
+{"level":"info","ts":"2025-04-21T05:55:48.650-0400","caller":"runtime/proc.go:267","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
+{"level":"info","ts":"2025-04-21T05:55:48.651-0400","caller":"runtime/proc.go:267","msg":"Vector inserted successfully","id":"vec1","dimensions":3}
+{"level":"info","ts":"2025-04-21T05:55:57.356-0400","caller":"runtime/proc.go:267","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
+{"level":"info","ts":"2025-04-21T05:55:57.357-0400","caller":"runtime/proc.go:267","msg":"Vector inserted successfully","id":"vec2","dimensions":3}
+{"level":"info","ts":"2025-04-21T05:56:08.847-0400","caller":"runtime/proc.go:267","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
+{"level":"error","ts":"2025-04-21T05:56:08.848-0400","caller":"runtime/proc.go:267","msg":"Search failed","error":"no results found","stacktrace":"runtime.main\n\t/usr/local/go/src/runtime/proc.go:267"}
+{"level":"info","ts":"2025-04-21T05:57:03.109-0400","caller":"runtime/proc.go:267","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
+{"level":"error","ts":"2025-04-21T05:57:03.110-0400","caller":"runtime/proc.go:267","msg":"Search failed","error":"no results found","stacktrace":"runtime.main\n\t/usr/local/go/src/runtime/proc.go:267"}
+{"level":"info","ts":"2025-04-21T05:57:22.096-0400","caller":"runtime/proc.go:267","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
+{"level":"info","ts":"2025-04-21T05:57:22.097-0400","caller":"runtime/proc.go:267","msg":"Vector inserted successfully","id":"vec1","dimensions":3}
+{"level":"info","ts":"2025-04-21T05:57:31.744-0400","caller":"runtime/proc.go:267","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
+{"level":"info","ts":"2025-04-21T05:57:31.744-0400","caller":"runtime/proc.go:267","msg":"Vector inserted successfully","id":"vec2","dimensions":3}
+{"level":"info","ts":"2025-04-21T05:57:42.198-0400","caller":"runtime/proc.go:267","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
+{"level":"error","ts":"2025-04-21T05:57:42.199-0400","caller":"runtime/proc.go:267","msg":"Search failed","error":"no results found","stacktrace":"runtime.main\n\t/usr/local/go/src/runtime/proc.go:267"}
+{"level":"info","ts":"2025-04-21T06:00:44.943-0400","caller":"runtime/proc.go:267","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
+{"level":"info","ts":"2025-04-21T06:00:44.944-0400","caller":"runtime/proc.go:267","msg":"Vector inserted successfully","id":"vec1","dimensions":3}
+{"level":"info","ts":"2025-04-21T06:00:52.474-0400","caller":"runtime/proc.go:267","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
+{"level":"info","ts":"2025-04-21T06:00:52.475-0400","caller":"runtime/proc.go:267","msg":"Vector inserted successfully","id":"vec2","dimensions":3}
+{"level":"info","ts":"2025-04-21T06:00:59.335-0400","caller":"runtime/proc.go:267","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
+{"level":"info","ts":"2025-04-21T06:00:59.335-0400","caller":"runtime/proc.go:267","msg":"Vector inserted successfully","id":"vec3","dimensions":3}
+{"level":"info","ts":"2025-04-21T06:01:07.805-0400","caller":"runtime/proc.go:267","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
+{"level":"info","ts":"2025-04-21T06:01:15.017-0400","caller":"runtime/proc.go:267","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
+{"level":"info","ts":"2025-04-21T06:01:36.379-0400","caller":"runtime/proc.go:267","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
+{"level":"info","ts":"2025-04-21T06:01:36.873-0400","caller":"runtime/proc.go:267","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
+{"level":"info","ts":"2025-04-21T06:01:37.347-0400","caller":"runtime/proc.go:267","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}

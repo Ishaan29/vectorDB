@@ -3,11 +3,11 @@ server:
   port: 8080
 
 storage:
-  path: data
+  path: /Users/ishaanbajpai/Desktop/bitCamp/vectorDB/data
 
 index:
   type: hnsw
-  dimensions: 128
+  dimensions: 3
 
 database:
   max_vectors: 1000000
