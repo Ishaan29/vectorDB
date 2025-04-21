@@ -1,0 +1,3 @@
+{"level":"info","ts":"2025-04-21T04:42:00.821-0400","caller":"runtime/proc.go:267","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
+{"level":"info","ts":"2025-04-21T04:42:10.177-0400","caller":"runtime/asm_arm64.s:1197","msg":"Received signal","signal":"interrupt"}
+{"level":"info","ts":"2025-04-21T04:42:10.178-0400","caller":"runtime/proc.go:267","msg":"Shutting down..."}

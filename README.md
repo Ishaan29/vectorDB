@@ -1,3 +1,95 @@
+# VectorDB
+
+A high-performance vector database implementation in Go.
+
+## Features
+
+- Fast vector similarity search
+- Support for multiple index types (HNSW planned)
+- Metadata storage and filtering
+- REST and gRPC APIs (coming soon)
+- Persistence and recovery
+- Production-ready configuration
+
+## Project Structure
+
+```
+vectorDB/
+├── api/                    # API layer (gRPC/HTTP handlers)
+├── cmd/                    # Main applications
+├── internal/              # Private application code
+├── pkg/                   # Public libraries
+├── proto/                 # Protocol buffer definitions
+├── scripts/              # Build and maintenance scripts
+├── test/                 # Additional test files
+└── Makefile             # Build automation
+```
+
+## Getting Started
+
+### Prerequisites
+
+- Go 1.21 or later
+- Make
+
+### Building
+
+```bash
+make build
+```
+
+### Running
+
+```bash
+# Using default config
+./build/vectordb
+
+# Using custom config
+./build/vectordb -config path/to/config.yaml
+```
+
+## Configuration
+
+Configuration is handled through a YAML file. Here's an example configuration:
+
+```yaml
+server:
+  host: localhost
+  port: 8080
+
+storage:
+  path: data
+
+index:
+  type: hnsw
+  dimensions: 128
+
+database:
+  max_vectors: 1000000
+```
+
+## Development
+
+### Running Tests
+
+```bash
+make test
+```
+
+### Linting
+
+```bash
+make lint
+```
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
 # ✅ VectorDB Development Checklist
 
 
