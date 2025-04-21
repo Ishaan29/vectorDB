@@ -1,6 +1,7 @@
 # VectorDB
 
-A high-performance vector database implementation in Go.
+A high-performance cloud native, dictributed vector database implementation in Go.
+With hyper focus in text and code embeddings. 
 
 ## Features
 
