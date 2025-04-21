@@ -1,0 +1,21 @@
+server:
+  host: localhost
+  port: 8080
+
+storage:
+  path: data
+
+index:
+  type: hnsw
+  dimensions: 128
+
+database:
+  max_vectors: 1000000
+
+logging:
+  level: info
+  encoding: json
+  output_paths:
+    - stdout
+    - logs/vectordb.log
+  dev_mode: false 
