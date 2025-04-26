@@ -70,18 +70,43 @@ func (c *LRUCache) Remove(key string) bool {
 	defer c.mu.Unlock()
 
 	if element, exists := c.items[key]; exists {
+		block := element.Value.(*LRUNode).block
 		c.lru.Remove(element)
 		delete(c.items, key)
+		c.totalCachedSize -= block.Header.Size
 		return true
 	}
 	return false
 }
 
 func (c *LRUCache) Evict() {
+	if c.evictionConfig.Policy == HybridEviction {
+		// Hybrid: scan for the block with the lowest hybrid score
+		var minElem *list.Element
+		minScore := float64(1<<63 - 1)
+		for e := c.lru.Back(); e != nil; e = e.Prev() {
+			node := e.Value.(*LRUNode)
+			block := node.block
+			score := c.hybridScore(block, e)
+			if score < minScore {
+				minScore = score
+				minElem = e
+			}
+		}
+		if minElem != nil {
+			node := minElem.Value.(*LRUNode)
+			block := node.block
+			delete(c.items, node.key)
+			c.lru.Remove(minElem)
+			c.totalCachedSize -= block.Header.Size
+			c.metrics.Evictions++
+		}
+		return
+	}
+	// Default: evict LRU
 	if element := c.lru.Back(); element != nil {
 		node := element.Value.(*LRUNode)
 		block := node.block
-
 		if c.shouldEvictBlock(block) {
 			delete(c.items, node.key)
 			c.lru.Remove(element)
@@ -136,4 +161,21 @@ func (c *LRUCache) shouldEvictBlock(block *MemBlock) bool {
 	default: // LRUEviction
 		return true
 	}
+}
+
+// hybridScore computes a score for hybrid eviction (lower is worse)
+func (c *LRUCache) hybridScore(block *MemBlock, elem *list.Element) float64 {
+	// Example: combine recency (distance from front) and size
+	// You can tune alpha/beta as needed
+	alpha := 0.7 // weight for recency
+	beta := 0.3  // weight for size
+
+	// Recency: how far from front (0 = most recent)
+	distance := 0
+	for e := c.lru.Front(); e != nil && e != elem; e = e.Next() {
+		distance++
+	}
+	recencyScore := float64(distance)
+	sizeScore := float64(block.Header.Size)
+	return alpha*recencyScore + beta*sizeScore
 }
