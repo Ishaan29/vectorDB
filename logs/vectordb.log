@@ -42,3 +42,14 @@
 {"level":"info","ts":"2025-04-21T06:01:36.379-0400","caller":"runtime/proc.go:267","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
 {"level":"info","ts":"2025-04-21T06:01:36.873-0400","caller":"runtime/proc.go:267","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
 {"level":"info","ts":"2025-04-21T06:01:37.347-0400","caller":"runtime/proc.go:267","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
+{"level":"info","ts":"2025-04-26T07:57:49.486-0400","caller":"vectordb/main.go:84","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
+{"level":"info","ts":"2025-04-26T07:57:49.486-0400","caller":"vectordb/main.go:136","msg":"Vector inserted successfully","id":"vec1","dimensions":3}
+{"level":"info","ts":"2025-04-26T07:57:56.374-0400","caller":"vectordb/main.go:84","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
+{"level":"info","ts":"2025-04-26T07:58:17.023-0400","caller":"vectordb/main.go:84","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
+{"level":"info","ts":"2025-04-26T07:58:17.025-0400","caller":"vectordb/main.go:136","msg":"Vector inserted successfully","id":"doc1","dimensions":3}
+{"level":"info","ts":"2025-04-26T07:58:23.841-0400","caller":"vectordb/main.go:84","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
+{"level":"info","ts":"2025-04-26T07:58:23.842-0400","caller":"vectordb/main.go:136","msg":"Vector inserted successfully","id":"doc2","dimensions":3}
+{"level":"info","ts":"2025-04-26T07:58:28.280-0400","caller":"vectordb/main.go:84","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
+{"level":"info","ts":"2025-04-26T07:58:28.280-0400","caller":"vectordb/main.go:136","msg":"Vector inserted successfully","id":"doc3","dimensions":3}
+{"level":"info","ts":"2025-04-26T07:58:32.722-0400","caller":"vectordb/main.go:84","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
+{"level":"info","ts":"2025-04-26T07:58:39.754-0400","caller":"vectordb/main.go:84","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
