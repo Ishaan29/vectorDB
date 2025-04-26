@@ -2,7 +2,11 @@ package types
 
 import (
 	"math"
+
+	"github.com/ishaan29/vectorDB/internal/logger"
 )
+
+var Log logger.Logger
 
 // In mem representation of a vector database
 type Vector struct {
@@ -39,6 +43,9 @@ func NewMathVector(values []float64) *MathVector {
 // Dot computes the dot product with another vector
 func (v *MathVector) Dot(other *MathVector) float64 {
 	if len(v.Values) != len(other.Values) {
+		if Log != nil {
+			Log.Warn("Dimension mismatch in Dot")
+		}
 		return 0.0
 	}
 
