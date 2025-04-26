@@ -49,7 +49,7 @@ func NewMemPool(config PoolConfig) (*MemPool, error) {
 
 	pool := &MemPool{
 		block: make([]*MemBlock, 0),
-		metrics: MemMatrics{
+		metrics: MemMetrics{
 			TotalSize:        config.InitialSize,
 			AvailableSize:    config.InitialSize,
 			LastMetricsReset: time.Now(),
@@ -78,7 +78,7 @@ func NewMemPool(config PoolConfig) (*MemPool, error) {
 	return pool, nil
 }
 
-func (p *MemPool) GetMatrics() MemMatrics {
+func (p *MemPool) GetMatrics() MemMetrics {
 	p.mu.RLock()
 	defer p.mu.RUnlock()
 	return p.metrics
@@ -188,7 +188,7 @@ func (p *MemPool) Alloc(size uint64) (*MemBlock, error) {
 		}
 		i++
 	}
-	return nil, ErrAllocationFaild
+	return nil, ErrAllocationFailed
 }
 
 // Free marks a block as deallocated and attempts to merge with adjacent free blocks

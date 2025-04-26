@@ -5,8 +5,8 @@ import (
 	"time"
 )
 
-// MemMatrics tracks memory pool usage statistics
-type MemMatrics struct {
+// MemMetrics tracks memory pool usage statistics
+type MemMetrics struct {
 	TotalSize        uint64
 	UsedSize         uint64
 	AvailableSize    uint64
@@ -41,7 +41,7 @@ type PoolConfig struct {
 type MemPool struct {
 	mu           sync.RWMutex
 	block        []*MemBlock
-	metrics      MemMatrics
+	metrics      MemMetrics
 	minBlockSize uint64
 	maxBlockSize uint64
 
