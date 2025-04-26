@@ -59,15 +59,15 @@ func (e *Engine) Search(query types.Vector, params SearchParams) ([]types.Search
 			continue
 		}
 
-		if similarity < params.Threshold {
+		if similarity < float64(params.Threshold) {
 			continue
 		}
 
 		foundAny = true
 		result := types.SearchResult{
 			Vector:   vec,
-			Distance: 1 - similarity,
-			Score:    similarity,
+			Distance: float32(1 - similarity),
+			Score:    float32(similarity),
 		}
 
 		if !params.IncludeVecs {
@@ -83,7 +83,7 @@ func (e *Engine) Search(query types.Vector, params SearchParams) ([]types.Search
 
 		if pq.Len() < params.K {
 			heap.Push(&pq, result)
-		} else if similarity > pq[0].Score {
+		} else if float64(pq[0].Score) < similarity {
 			heap.Pop(&pq)
 			heap.Push(&pq, result)
 		}

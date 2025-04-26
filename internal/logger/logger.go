@@ -59,7 +59,7 @@ func New(cfg *Config) (Logger, error) {
 	}
 
 	l, err := zapConfig.Build(
-		zap.AddCallerSkip(1),
+		zap.AddCaller(),
 		zap.AddStacktrace(zapcore.ErrorLevel),
 	)
 	if err != nil {

@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 	"sync"
 
-	"github.com/ishaan29/vectorDB/internal/config"
+	config "github.com/ishaan29/vectorDB/internal/config"
 	"github.com/ishaan29/vectorDB/internal/logger"
 	"github.com/ishaan29/vectorDB/pkg/types"
 )
