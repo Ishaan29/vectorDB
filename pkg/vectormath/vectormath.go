@@ -7,30 +7,30 @@ import (
 )
 
 // Dot computes the dot product of two vectors
-func Dot(v1, v2 []float32) (float64, error) {
+func Dot(v1, v2 []float32) (float32, error) {
 	if len(v1) != len(v2) {
 		logger.Error("Dimension mismatch in Dot", ErrDimensionMismatch)
 		return 0, ErrDimensionMismatch
 	}
 
-	sum := 0.0
+	var sum float32
 	for i := 0; i < len(v1); i++ {
-		sum += float64(v1[i] * v2[i])
+		sum += v1[i] * v2[i]
 	}
 	return sum, nil
 }
 
 // Magnitude returns the L2 norm (Euclidean norm) of the vector
-func Magnitude(v []float32) float64 {
-	sum := 0.0
+func Magnitude(v []float32) float32 {
+	var sum float32
 	for _, val := range v {
-		sum += float64(val * val)
+		sum += val * val
 	}
-	return math.Sqrt(sum)
+	return float32(math.Sqrt(float64(sum)))
 }
 
 // CosineSimilarity calculates the cosine similarity between two vectors
-func CosineSimilarity(v1, v2 []float32) (float64, error) {
+func CosineSimilarity(v1, v2 []float32) (float32, error) {
 	if len(v1) != len(v2) {
 		logger.Error("Dimension mismatch in CosineSimilarity", ErrDimensionMismatch)
 		return 0, ErrDimensionMismatch
@@ -53,18 +53,18 @@ func CosineSimilarity(v1, v2 []float32) (float64, error) {
 }
 
 // EuclideanDistance calculates the Euclidean distance between two vectors
-func EuclideanDistance(v1, v2 []float32) (float64, error) {
+func EuclideanDistance(v1, v2 []float32) (float32, error) {
 	if len(v1) != len(v2) {
 		logger.Error("Dimension mismatch in EuclideanDistance", ErrDimensionMismatch)
 		return 0, ErrDimensionMismatch
 	}
 
-	sum := 0.0
+	var sum float32
 	for i := 0; i < len(v1); i++ {
-		diff := float64(v1[i] - v2[i])
+		diff := v1[i] - v2[i]
 		sum += diff * diff
 	}
-	return math.Sqrt(sum), nil
+	return float32(math.Sqrt(float64(sum))), nil
 }
 
 // NormalizeVector normalizes a vector in place to have unit magnitude
@@ -76,7 +76,7 @@ func NormalizeVector(v []float32) error {
 	}
 
 	for i := range v {
-		v[i] = float32(float64(v[i]) / mag)
+		v[i] = v[i] / mag
 	}
 	return nil
 }

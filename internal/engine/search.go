@@ -59,7 +59,7 @@ func (e *Engine) Search(query types.Vector, params SearchParams) ([]types.Search
 			continue
 		}
 
-		if similarity < float64(params.Threshold) {
+		if similarity < params.Threshold {
 			continue
 		}
 
@@ -83,7 +83,7 @@ func (e *Engine) Search(query types.Vector, params SearchParams) ([]types.Search
 
 		if pq.Len() < params.K {
 			heap.Push(&pq, result)
-		} else if float64(pq[0].Score) < similarity {
+		} else if pq[0].Score < similarity {
 			heap.Pop(&pq)
 			heap.Push(&pq, result)
 		}

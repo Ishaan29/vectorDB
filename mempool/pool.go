@@ -20,7 +20,7 @@ const (
 // SearchResult represents a search result with similarity score
 type SearchResult struct {
 	Block      *MemBlock
-	Similarity float64
+	Similarity float32
 }
 
 // Error definitions
@@ -414,7 +414,7 @@ func (p *MemPool) Search(query interface{}, k int) []Block {
 
 	type Result struct {
 		block      Block
-		similarity float64
+		similarity float32
 	}
 
 	var results []Result
@@ -454,25 +454,25 @@ func (p *MemPool) Search(query interface{}, k int) []Block {
 }
 
 // calculateSimilarity computes the similarity between two byte slices
-func (p *MemPool) calculateSimilarity(a, b []byte) float64 {
+func (p *MemPool) calculateSimilarity(a, b []byte) float32 {
 	// Simple cosine similarity implementation
 	if len(a) != len(b) {
 		return 0.0
 	}
 
-	dotProduct := 0.0
-	normA := 0.0
-	normB := 0.0
+	var dotProduct float32
+	var normA float32
+	var normB float32
 
 	for i := 0; i < len(a); i++ {
-		dotProduct += float64(a[i]) * float64(b[i])
-		normA += float64(a[i]) * float64(a[i])
-		normB += float64(b[i]) * float64(b[i])
+		dotProduct += float32(a[i]) * float32(b[i])
+		normA += float32(a[i]) * float32(a[i])
+		normB += float32(b[i]) * float32(b[i])
 	}
 
 	if normA == 0 || normB == 0 {
 		return 0.0
 	}
 
-	return dotProduct / (math.Sqrt(normA) * math.Sqrt(normB))
+	return dotProduct / (float32(math.Sqrt(float64(normA))) * float32(math.Sqrt(float64(normB))))
 }

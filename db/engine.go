@@ -72,14 +72,14 @@ func (engine *Engine) Search(query []float32, k int) ([]SearchResult, error) {
 
 		// If we haven't found K vectors yet, just add to heap
 		if h.Len() < k {
-			heap.Push(h, SearchResult{Vector: vector, Similarity: float32(similarity)})
+			heap.Push(h, SearchResult{Vector: vector, Similarity: similarity})
 			continue
 		}
 
 		// If this vector is more similar than the least similar in our heap
-		if similarity > float64((*h)[0].Similarity) {
+		if similarity > (*h)[0].Similarity {
 			heap.Pop(h)
-			heap.Push(h, SearchResult{Vector: vector, Similarity: float32(similarity)})
+			heap.Push(h, SearchResult{Vector: vector, Similarity: similarity})
 		}
 	}
 
