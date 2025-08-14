@@ -19,3 +19,6 @@ logging:
     - stdout
     - logs/vectordb.log
   dev_mode: false 
+
+badger:
+  path: /Users/ishaanbajpai/Desktop/bitCamp/vectorDB/data

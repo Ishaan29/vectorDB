@@ -2,35 +2,44 @@ package db
 
 import (
 	"container/heap"
+	"log"
 	"sync"
 
+	"github.com/ishaan29/vectorDB/pkg/types"
 	"github.com/ishaan29/vectorDB/pkg/vectormath"
 	"github.com/ishaan29/vectorDB/storage"
 )
 
 type Engine struct {
-	mu    sync.RWMutex
-	store map[string]storage.Vector
+	mu          sync.RWMutex
+	store       map[string]storage.Vector
+	vectorStore storage.VectorStore
 	// index
 }
 
 func NewEngine() *Engine {
 	return &Engine{
-		store: make(map[string]storage.Vector),
+		store:       make(map[string]storage.Vector),
+		vectorStore: nil,
 	}
 }
 
 func (engine *Engine) Insert(vector storage.Vector) {
 	engine.mu.Lock()
 	defer engine.mu.Unlock()
-	engine.store[vector.ID] = vector
+	// engine.store[vector.ID] = vector
+	vector.ID = engine.vectorStore.GetVectorKey(vector.ID)
+	engine.vectorStore.Put(types.Vector{ID: vector.ID, Embedding: vector.Embedding, Metadata: vector.Metadata})
 }
 
 func (engine *Engine) Get(id string) (storage.Vector, bool) {
 	engine.mu.RLock()
 	defer engine.mu.RUnlock()
-	v, ok := engine.store[id]
-	return v, ok
+	vector, err := engine.vectorStore.Get(id)
+	if err != nil {
+		return storage.Vector{}, false
+	}
+	return storage.Vector{ID: vector.ID, Embedding: vector.Embedding, Metadata: vector.Metadata}, true
 }
 
 // SearchResult represents a single search result with its similarity score
@@ -64,22 +73,27 @@ func (engine *Engine) Search(query []float32, k int) ([]SearchResult, error) {
 	heap.Init(h)
 
 	// Compare query vector with all vectors in store
-	for _, vector := range engine.store {
-		similarity, err := vectormath.CosineSimilarity(query, vector.Embedding)
+	vectors, err := engine.vectorStore.GetAllVectors()
+	if err != nil {
+		log.Printf("Failed to get all vectors: %v", err)
+		return nil, err
+	}
+	for _, v := range vectors {
+		similarity, err := vectormath.CosineSimilarity(query, v.Embedding)
 		if err != nil {
 			continue // Skip vectors that can't be compared
 		}
 
 		// If we haven't found K vectors yet, just add to heap
 		if h.Len() < k {
-			heap.Push(h, SearchResult{Vector: vector, Similarity: similarity})
+			heap.Push(h, SearchResult{Vector: storage.Vector{ID: v.ID, Embedding: v.Embedding, Metadata: v.Metadata}, Similarity: similarity})
 			continue
 		}
 
 		// If this vector is more similar than the least similar in our heap
 		if similarity > (*h)[0].Similarity {
 			heap.Pop(h)
-			heap.Push(h, SearchResult{Vector: vector, Similarity: similarity})
+			heap.Push(h, SearchResult{Vector: storage.Vector{ID: v.ID, Embedding: v.Embedding, Metadata: v.Metadata}, Similarity: similarity})
 		}
 	}
 

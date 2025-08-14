@@ -14,6 +14,7 @@ type Config struct {
 	Index    IndexConfig    `yaml:"index"`
 	Database DatabaseConfig `yaml:"database"`
 	Logging  logger.Config  `yaml:"logging"`
+	Badger   BadgerConfig   `yaml:"badger"`
 }
 
 // ServerConfig holds server-specific configuration
@@ -36,6 +37,10 @@ type IndexConfig struct {
 // DatabaseConfig holds database-specific configuration
 type DatabaseConfig struct {
 	MaxVectors int `yaml:"max_vectors"`
+}
+
+type BadgerConfig struct {
+	Path string `yaml:"path"`
 }
 
 // Load reads the configuration file and returns a Config struct

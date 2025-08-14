@@ -36,6 +36,13 @@ func New(cfg *Config) (Logger, error) {
 		return nil, err
 	}
 
+	var outputLogs []string
+	if cfg.Level == "debug" {
+		outputLogs = []string{"../logs/vectordb.log"}
+	} else {
+		outputLogs = cfg.OutputPaths
+	}
+
 	zapConfig := zap.Config{
 		Level:       zap.NewAtomicLevelAt(level),
 		Development: cfg.DevMode,
@@ -54,7 +61,7 @@ func New(cfg *Config) (Logger, error) {
 			EncodeDuration: zapcore.StringDurationEncoder,
 			EncodeCaller:   zapcore.ShortCallerEncoder,
 		},
-		OutputPaths:      cfg.OutputPaths,
+		OutputPaths:      outputLogs,
 		ErrorOutputPaths: []string{"stderr"},
 	}
 
