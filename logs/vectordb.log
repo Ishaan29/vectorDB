@@ -42,3 +42,57 @@
 {"level":"info","ts":"2025-04-21T06:01:36.379-0400","caller":"runtime/proc.go:267","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
 {"level":"info","ts":"2025-04-21T06:01:36.873-0400","caller":"runtime/proc.go:267","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
 {"level":"info","ts":"2025-04-21T06:01:37.347-0400","caller":"runtime/proc.go:267","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
+{"level":"info","ts":"2025-04-26T07:57:49.486-0400","caller":"vectordb/main.go:84","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
+{"level":"info","ts":"2025-04-26T07:57:49.486-0400","caller":"vectordb/main.go:136","msg":"Vector inserted successfully","id":"vec1","dimensions":3}
+{"level":"info","ts":"2025-04-26T07:57:56.374-0400","caller":"vectordb/main.go:84","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
+{"level":"info","ts":"2025-04-26T07:58:17.023-0400","caller":"vectordb/main.go:84","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
+{"level":"info","ts":"2025-04-26T07:58:17.025-0400","caller":"vectordb/main.go:136","msg":"Vector inserted successfully","id":"doc1","dimensions":3}
+{"level":"info","ts":"2025-04-26T07:58:23.841-0400","caller":"vectordb/main.go:84","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
+{"level":"info","ts":"2025-04-26T07:58:23.842-0400","caller":"vectordb/main.go:136","msg":"Vector inserted successfully","id":"doc2","dimensions":3}
+{"level":"info","ts":"2025-04-26T07:58:28.280-0400","caller":"vectordb/main.go:84","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
+{"level":"info","ts":"2025-04-26T07:58:28.280-0400","caller":"vectordb/main.go:136","msg":"Vector inserted successfully","id":"doc3","dimensions":3}
+{"level":"info","ts":"2025-04-26T07:58:32.722-0400","caller":"vectordb/main.go:84","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
+{"level":"info","ts":"2025-04-26T07:58:39.754-0400","caller":"vectordb/main.go:84","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
+{"level":"info","ts":"2025-08-13T21:22:30.291-0400","caller":"persistence/badger.store.go:29","msg":"All 0 tables opened in 0s\n"}
+{"level":"info","ts":"2025-08-13T21:22:30.295-0400","caller":"persistence/badger.store.go:29","msg":"Discard stats nextEmptySlot: 0\n"}
+{"level":"info","ts":"2025-08-13T21:22:30.295-0400","caller":"persistence/badger.store.go:29","msg":"Set nextTxnTs to 0"}
+{"level":"info","ts":"2025-08-13T21:22:30.296-0400","caller":"db/badger_test.go:57","msg":"Vector","vector":"{\"id\":\"\",\"embedding\":[0.1,0.2,0.3]}"}
+{"level":"info","ts":"2025-08-13T21:23:42.527-0400","caller":"persistence/badger.store.go:29","msg":"All 0 tables opened in 0s\n"}
+{"level":"info","ts":"2025-08-13T21:23:42.536-0400","caller":"persistence/badger.store.go:29","msg":"Discard stats nextEmptySlot: 0\n"}
+{"level":"info","ts":"2025-08-13T21:23:42.536-0400","caller":"persistence/badger.store.go:29","msg":"Set nextTxnTs to 1"}
+{"level":"info","ts":"2025-08-13T21:23:42.537-0400","caller":"db/badger_test.go:57","msg":"Vector","vector":"{\"id\":\"\",\"embedding\":[0.1,0.2,0.3]}"}
+{"level":"info","ts":"2025-08-13T21:25:22.965-0400","caller":"persistence/badger.store.go:29","msg":"All 1 tables opened in 0s\n"}
+{"level":"info","ts":"2025-08-13T21:25:22.971-0400","caller":"persistence/badger.store.go:29","msg":"Discard stats nextEmptySlot: 0\n"}
+{"level":"info","ts":"2025-08-13T21:25:22.971-0400","caller":"persistence/badger.store.go:29","msg":"Set nextTxnTs to 2"}
+{"level":"info","ts":"2025-08-13T21:25:22.971-0400","caller":"persistence/badger.store.go:29","msg":"Deleting empty file: /Users/ishaanbajpai/Desktop/bitCamp/vectorDB/data/000001.vlog"}
+{"level":"info","ts":"2025-08-13T21:25:22.973-0400","caller":"db/badger_test.go:57","msg":"Vector","vector":"{\"id\":\"\",\"embedding\":[0.1,0.2,0.3]}"}
+{"level":"info","ts":"2025-08-13T21:26:11.222-0400","caller":"persistence/badger.store.go:29","msg":"All 2 tables opened in 0s\n"}
+{"level":"info","ts":"2025-08-13T21:26:11.229-0400","caller":"persistence/badger.store.go:29","msg":"Discard stats nextEmptySlot: 0\n"}
+{"level":"info","ts":"2025-08-13T21:26:11.229-0400","caller":"persistence/badger.store.go:29","msg":"Set nextTxnTs to 3"}
+{"level":"info","ts":"2025-08-13T21:26:11.229-0400","caller":"persistence/badger.store.go:29","msg":"Deleting empty file: /Users/ishaanbajpai/Desktop/bitCamp/vectorDB/data/000002.vlog"}
+{"level":"info","ts":"2025-08-13T21:26:11.235-0400","caller":"db/badger_test.go:57","msg":"Vector","vector":"{\"id\":\"\",\"embedding\":[0.1,0.2,0.3]}"}
+{"level":"info","ts":"2025-08-14T00:03:01.537-0400","caller":"persistence/badger.store.go:29","msg":"All 3 tables opened in 0s\n"}
+{"level":"info","ts":"2025-08-14T00:03:01.549-0400","caller":"persistence/badger.store.go:29","msg":"Discard stats nextEmptySlot: 0\n"}
+{"level":"info","ts":"2025-08-14T00:03:01.550-0400","caller":"persistence/badger.store.go:29","msg":"Set nextTxnTs to 4"}
+{"level":"info","ts":"2025-08-14T00:03:01.550-0400","caller":"persistence/badger.store.go:29","msg":"Deleting empty file: /Users/ishaanbajpai/Desktop/bitCamp/vectorDB/data/000003.vlog"}
+{"level":"info","ts":"2025-08-14T00:03:01.551-0400","caller":"db/badger_test.go:57","msg":"Vector","vector":"{\"id\":\"\",\"embedding\":[0.1,0.2,0.3]}"}
+{"level":"info","ts":"2025-08-14T00:24:38.858-0400","caller":"persistence/badger.store.go:29","msg":"All 4 tables opened in 1ms\n"}
+{"level":"info","ts":"2025-08-14T00:24:38.865-0400","caller":"persistence/badger.store.go:29","msg":"Discard stats nextEmptySlot: 0\n"}
+{"level":"info","ts":"2025-08-14T00:24:38.866-0400","caller":"persistence/badger.store.go:29","msg":"Set nextTxnTs to 5"}
+{"level":"info","ts":"2025-08-14T00:24:38.866-0400","caller":"persistence/badger.store.go:29","msg":"Deleting empty file: /Users/ishaanbajpai/Desktop/bitCamp/vectorDB/data/000004.vlog"}
+{"level":"info","ts":"2025-08-14T00:24:38.867-0400","caller":"db/badger_test.go:57","msg":"Vector","vector":"{\"id\":\"\",\"embedding\":[0.1,0.2,0.3]}"}
+{"level":"debug","ts":"2025-08-14T00:32:38.749-0400","caller":"persistence/badger.store.go:32","msg":"First key=\"v:1\\xff\\xff\\xff\\xff\\xff\\xff\\xff\\xf9\"\n"}
+{"level":"info","ts":"2025-08-14T00:32:38.750-0400","caller":"persistence/badger.store.go:29","msg":"All 5 tables opened in 0s\n"}
+{"level":"info","ts":"2025-08-14T00:32:38.758-0400","caller":"persistence/badger.store.go:29","msg":"Discard stats nextEmptySlot: 0\n"}
+{"level":"info","ts":"2025-08-14T00:32:38.758-0400","caller":"persistence/badger.store.go:29","msg":"Set nextTxnTs to 6"}
+{"level":"info","ts":"2025-08-14T00:32:38.758-0400","caller":"persistence/badger.store.go:29","msg":"Deleting empty file: /Users/ishaanbajpai/Desktop/bitCamp/vectorDB/data/000005.vlog"}
+{"level":"debug","ts":"2025-08-14T00:32:38.760-0400","caller":"persistence/badger.store.go:32","msg":"writeRequests called. Writing to value log"}
+{"level":"debug","ts":"2025-08-14T00:32:38.760-0400","caller":"persistence/badger.store.go:32","msg":"Writing to memtable"}
+{"level":"debug","ts":"2025-08-14T00:32:38.760-0400","caller":"persistence/badger.store.go:32","msg":"Sending updates to subscribers"}
+{"level":"debug","ts":"2025-08-14T00:32:38.760-0400","caller":"persistence/badger.store.go:32","msg":"2 entries written"}
+{"level":"info","ts":"2025-08-14T00:32:38.760-0400","caller":"db/badger_test.go:57","msg":"Vector","vector":"{\"id\":\"\",\"embedding\":[0.1,0.2,0.3]}"}
+{"level":"info","ts":"2025-08-14T00:33:33.500-0400","caller":"vectordb/main.go:84","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
+{"level":"info","ts":"2025-08-14T00:33:33.501-0400","caller":"vectordb/main.go:136","msg":"Vector inserted successfully","id":"vec1","dimensions":3}
+{"level":"info","ts":"2025-08-14T00:33:48.366-0400","caller":"vectordb/main.go:84","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
+{"level":"info","ts":"2025-08-14T00:34:22.009-0400","caller":"vectordb/main.go:84","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
+{"level":"info","ts":"2025-08-14T00:34:31.958-0400","caller":"vectordb/main.go:84","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
