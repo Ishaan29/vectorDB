@@ -1,11 +1,20 @@
 package engine
 
-import "errors"
+import (
+	"errors"
+	"fmt"
+)
 
 var (
-	// ErrEngineNotRunning is returned when trying to perform operations on a stopped engine
-	ErrEngineNotRunning = errors.New("engine is not running")
-
-	// ErrInvalidDimensions is returned when vector dimensions don't match the configured dimensions
-	ErrInvalidDimensions = errors.New("invalid vector dimensions")
+	ErrEngineNotRunning     = errors.New("engine is not running")
+	ErrStoreInitialization  = errors.New("failed to initialize vector store")
+	ErrIndexInitialization  = errors.New("failed to initialize index")
+	ErrEngineAlreadyRunning = errors.New("engine is already running")
+	ErrSearchIndexFailed    = errors.New("failed to search index")
+	ErrVectorNotFound       = errors.New("vector not found")
 )
+
+func ErrInvalidDimensions(expected, actual int) error {
+	return fmt.Errorf("invalid dimensions: expected %d, got %d",
+		expected, actual)
+}

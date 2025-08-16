@@ -1,0 +1,46 @@
+# Git
+.git
+.gitignore
+
+# Documentation
+*.md
+docs/
+
+# IDE
+.vscode/
+.cursor/
+.idea/
+
+# Binaries
+vectordb-server
+vectordb
+*.exe
+
+# Test files
+*_test.go
+test/
+tests/
+
+# Development files
+.env
+.env.*
+
+# Logs
+logs/
+*.log
+
+# Temporary files
+tmp/
+temp/
+
+# Docker files themselves
+Dockerfile*
+docker-compose*
+.dockerignore
+
+# Node modules (if any)
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
