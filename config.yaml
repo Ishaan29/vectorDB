@@ -7,7 +7,7 @@ storage:
 
 index:
   type: hnsw
-  dimensions: 3
+  dimensions: 128
 
 database:
   max_vectors: 1000000

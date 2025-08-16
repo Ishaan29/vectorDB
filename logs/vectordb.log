@@ -96,3 +96,474 @@
 {"level":"info","ts":"2025-08-14T00:33:48.366-0400","caller":"vectordb/main.go:84","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
 {"level":"info","ts":"2025-08-14T00:34:22.009-0400","caller":"vectordb/main.go:84","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
 {"level":"info","ts":"2025-08-14T00:34:31.958-0400","caller":"vectordb/main.go:84","msg":"Starting VectorDB","config_path":"config.yaml","version":"0.1.0"}
+{"level":"debug","ts":"2025-08-14T00:47:38.026-0400","caller":"persistence/badger.store.go:32","msg":"First key=\"v:1\\xff\\xff\\xff\\xff\\xff\\xff\\xff\\xf8\"\n"}
+{"level":"info","ts":"2025-08-14T00:47:38.028-0400","caller":"persistence/badger.store.go:29","msg":"All 6 tables opened in 1ms\n"}
+{"level":"info","ts":"2025-08-14T00:47:38.040-0400","caller":"persistence/badger.store.go:29","msg":"Discard stats nextEmptySlot: 0\n"}
+{"level":"info","ts":"2025-08-14T00:47:38.040-0400","caller":"persistence/badger.store.go:29","msg":"Set nextTxnTs to 7"}
+{"level":"info","ts":"2025-08-14T00:47:38.041-0400","caller":"persistence/badger.store.go:29","msg":"Deleting empty file: /Users/ishaanbajpai/Desktop/bitCamp/vectorDB/data/000006.vlog"}
+{"level":"debug","ts":"2025-08-14T00:47:38.043-0400","caller":"persistence/badger.store.go:32","msg":"writeRequests called. Writing to value log"}
+{"level":"debug","ts":"2025-08-14T00:47:38.043-0400","caller":"persistence/badger.store.go:32","msg":"Writing to memtable"}
+{"level":"debug","ts":"2025-08-14T00:47:38.043-0400","caller":"persistence/badger.store.go:32","msg":"Sending updates to subscribers"}
+{"level":"debug","ts":"2025-08-14T00:47:38.043-0400","caller":"persistence/badger.store.go:32","msg":"2 entries written"}
+{"level":"info","ts":"2025-08-14T00:47:38.043-0400","caller":"db/badger_test.go:57","msg":"Vector","vector":"{\"id\":\"\",\"embedding\":[0.1,0.2,0.3]}"}
+{"level":"info","ts":"2025-08-16T00:06:38.787-0400","caller":"persistence/badger.store.go:32","msg":"All 7 tables opened in 2ms\n"}
+{"level":"info","ts":"2025-08-16T00:06:38.796-0400","caller":"persistence/badger.store.go:32","msg":"Discard stats nextEmptySlot: 0\n"}
+{"level":"info","ts":"2025-08-16T00:06:38.796-0400","caller":"persistence/badger.store.go:32","msg":"Set nextTxnTs to 8"}
+{"level":"info","ts":"2025-08-16T00:06:38.797-0400","caller":"persistence/badger.store.go:32","msg":"Deleting empty file: /Users/ishaanbajpai/Desktop/bitCamp/vectorDB/data/000007.vlog"}
+{"level":"info","ts":"2025-08-16T00:06:38.805-0400","caller":"engine/engine.go:53","msg":"Starting vector engine, rebuilding HSNW index from storage. "}
+{"level":"warn","ts":"2025-08-16T00:06:38.805-0400","caller":"persistence/badger.store.go:170","msg":"Failed to unmarshal vector","key":"1","error":"json: cannot unmarshal array into Go value of type types.Vector"}
+{"level":"warn","ts":"2025-08-16T00:06:38.805-0400","caller":"persistence/badger.store.go:170","msg":"Failed to unmarshal vector","key":"v:1","error":"json: cannot unmarshal array into Go value of type types.Vector"}
+{"level":"info","ts":"2025-08-16T00:06:38.805-0400","caller":"engine/engine.go:103","msg":"Engine started successfully","vectors_indexed":0,"errors":0,"startup_time":"132.459µs"}
+{"level":"info","ts":"2025-08-16T00:06:38.806-0400","caller":"engine/engine.go:136","msg":"Vector inserted successfully","id":"doc1","dimensions":3}
+{"level":"info","ts":"2025-08-16T00:06:38.806-0400","caller":"engine/engine.go:136","msg":"Vector inserted successfully","id":"doc2","dimensions":3}
+{"level":"info","ts":"2025-08-16T00:07:05.012-0400","caller":"vectordb/main.go:51","msg":"Shutdown signal received"}
+{"level":"info","ts":"2025-08-16T00:07:05.013-0400","caller":"engine/engine.go:315","msg":"Stopping engine..."}
+{"level":"info","ts":"2025-08-16T00:07:05.013-0400","caller":"persistence/badger.store.go:32","msg":"Lifetime L0 stalled for: 0s\n"}
+{"level":"info","ts":"2025-08-16T00:07:05.024-0400","caller":"persistence/badger.store.go:32","msg":"\nLevel 0 [ ]: NumTables: 01. Size: 286 B of 0 B. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 64 MiB\nLevel 1 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 2 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 3 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 4 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 5 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 6 [B]: NumTables: 02. Size: 354 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel Done\n"}
+{"level":"info","ts":"2025-08-16T00:07:05.041-0400","caller":"engine/engine.go:324","msg":"Engine stopped successfully"}
+{"level":"info","ts":"2025-08-16T00:11:36.380-0400","caller":"persistence/badger.store.go:32","msg":"All 0 tables opened in 0s\n"}
+{"level":"info","ts":"2025-08-16T00:11:36.385-0400","caller":"persistence/badger.store.go:32","msg":"Discard stats nextEmptySlot: 0\n"}
+{"level":"info","ts":"2025-08-16T00:11:36.385-0400","caller":"persistence/badger.store.go:32","msg":"Set nextTxnTs to 0"}
+{"level":"info","ts":"2025-08-16T00:11:36.386-0400","caller":"engine/engine.go:53","msg":"Starting vector engine, rebuilding HSNW index from storage. "}
+{"level":"info","ts":"2025-08-16T00:11:36.386-0400","caller":"engine/engine.go:103","msg":"Engine started successfully","vectors_indexed":0,"errors":0,"startup_time":"25.042µs"}
+{"level":"info","ts":"2025-08-16T00:11:36.386-0400","caller":"engine/engine.go:315","msg":"Stopping engine..."}
+{"level":"debug","ts":"2025-08-16T00:11:36.386-0400","caller":"persistence/badger.store.go:35","msg":"Closing database"}
+{"level":"info","ts":"2025-08-16T00:11:36.386-0400","caller":"persistence/badger.store.go:32","msg":"Lifetime L0 stalled for: 0s\n"}
+{"level":"debug","ts":"2025-08-16T00:11:36.386-0400","caller":"persistence/badger.store.go:35","msg":"Stopping garbage collection of values."}
+{"level":"info","ts":"2025-08-16T00:11:36.387-0400","caller":"persistence/badger.store.go:32","msg":"\nLevel 0 [ ]: NumTables: 00. Size: 0 B of 0 B. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 64 MiB\nLevel 1 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 2 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 3 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 4 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 5 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 6 [B]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel Done\n"}
+{"level":"debug","ts":"2025-08-16T00:11:36.387-0400","caller":"persistence/badger.store.go:35","msg":"Waiting for closer"}
+{"level":"info","ts":"2025-08-16T00:11:36.394-0400","caller":"engine/engine.go:324","msg":"Engine stopped successfully"}
+{"level":"info","ts":"2025-08-16T00:11:36.395-0400","caller":"persistence/badger.store.go:32","msg":"All 0 tables opened in 0s\n"}
+{"level":"info","ts":"2025-08-16T00:11:36.399-0400","caller":"persistence/badger.store.go:32","msg":"Discard stats nextEmptySlot: 0\n"}
+{"level":"info","ts":"2025-08-16T00:11:36.399-0400","caller":"persistence/badger.store.go:32","msg":"Set nextTxnTs to 0"}
+{"level":"info","ts":"2025-08-16T00:11:36.400-0400","caller":"engine/engine.go:53","msg":"Starting vector engine, rebuilding HSNW index from storage. "}
+{"level":"info","ts":"2025-08-16T00:11:36.400-0400","caller":"engine/engine.go:103","msg":"Engine started successfully","vectors_indexed":0,"errors":0,"startup_time":"9.25µs"}
+{"level":"debug","ts":"2025-08-16T00:11:36.400-0400","caller":"persistence/badger.store.go:35","msg":"writeRequests called. Writing to value log"}
+{"level":"debug","ts":"2025-08-16T00:11:36.400-0400","caller":"persistence/badger.store.go:35","msg":"Writing to memtable"}
+{"level":"debug","ts":"2025-08-16T00:11:36.400-0400","caller":"persistence/badger.store.go:35","msg":"Sending updates to subscribers"}
+{"level":"debug","ts":"2025-08-16T00:11:36.400-0400","caller":"persistence/badger.store.go:35","msg":"2 entries written"}
+{"level":"debug","ts":"2025-08-16T00:11:36.400-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec0","total_vectors":1}
+{"level":"info","ts":"2025-08-16T00:11:36.400-0400","caller":"engine/engine.go:136","msg":"Vector inserted successfully","id":"vec0","dimensions":128}
+{"level":"debug","ts":"2025-08-16T00:11:36.400-0400","caller":"persistence/badger.store.go:35","msg":"writeRequests called. Writing to value log"}
+{"level":"debug","ts":"2025-08-16T00:11:36.400-0400","caller":"persistence/badger.store.go:35","msg":"Writing to memtable"}
+{"level":"debug","ts":"2025-08-16T00:11:36.400-0400","caller":"persistence/badger.store.go:35","msg":"Sending updates to subscribers"}
+{"level":"debug","ts":"2025-08-16T00:11:36.400-0400","caller":"persistence/badger.store.go:35","msg":"2 entries written"}
+{"level":"debug","ts":"2025-08-16T00:11:36.400-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec1","total_vectors":2}
+{"level":"info","ts":"2025-08-16T00:11:36.400-0400","caller":"engine/engine.go:136","msg":"Vector inserted successfully","id":"vec1","dimensions":128}
+{"level":"debug","ts":"2025-08-16T00:11:36.400-0400","caller":"persistence/badger.store.go:35","msg":"writeRequests called. Writing to value log"}
+{"level":"debug","ts":"2025-08-16T00:11:36.400-0400","caller":"persistence/badger.store.go:35","msg":"Writing to memtable"}
+{"level":"debug","ts":"2025-08-16T00:11:36.400-0400","caller":"persistence/badger.store.go:35","msg":"Sending updates to subscribers"}
+{"level":"debug","ts":"2025-08-16T00:11:36.400-0400","caller":"persistence/badger.store.go:35","msg":"2 entries written"}
+{"level":"debug","ts":"2025-08-16T00:11:36.400-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec2","total_vectors":3}
+{"level":"info","ts":"2025-08-16T00:11:36.400-0400","caller":"engine/engine.go:136","msg":"Vector inserted successfully","id":"vec2","dimensions":128}
+{"level":"debug","ts":"2025-08-16T00:11:36.400-0400","caller":"persistence/badger.store.go:35","msg":"writeRequests called. Writing to value log"}
+{"level":"debug","ts":"2025-08-16T00:11:36.400-0400","caller":"persistence/badger.store.go:35","msg":"Writing to memtable"}
+{"level":"debug","ts":"2025-08-16T00:11:36.400-0400","caller":"persistence/badger.store.go:35","msg":"Sending updates to subscribers"}
+{"level":"debug","ts":"2025-08-16T00:11:36.400-0400","caller":"persistence/badger.store.go:35","msg":"2 entries written"}
+{"level":"debug","ts":"2025-08-16T00:11:36.400-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec3","total_vectors":4}
+{"level":"info","ts":"2025-08-16T00:11:36.400-0400","caller":"engine/engine.go:136","msg":"Vector inserted successfully","id":"vec3","dimensions":128}
+{"level":"debug","ts":"2025-08-16T00:11:36.400-0400","caller":"persistence/badger.store.go:35","msg":"writeRequests called. Writing to value log"}
+{"level":"debug","ts":"2025-08-16T00:11:36.400-0400","caller":"persistence/badger.store.go:35","msg":"Writing to memtable"}
+{"level":"debug","ts":"2025-08-16T00:11:36.400-0400","caller":"persistence/badger.store.go:35","msg":"Sending updates to subscribers"}
+{"level":"debug","ts":"2025-08-16T00:11:36.400-0400","caller":"persistence/badger.store.go:35","msg":"2 entries written"}
+{"level":"debug","ts":"2025-08-16T00:11:36.400-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec4","total_vectors":5}
+{"level":"info","ts":"2025-08-16T00:11:36.400-0400","caller":"engine/engine.go:136","msg":"Vector inserted successfully","id":"vec4","dimensions":128}
+{"level":"debug","ts":"2025-08-16T00:11:36.400-0400","caller":"persistence/badger.store.go:35","msg":"writeRequests called. Writing to value log"}
+{"level":"debug","ts":"2025-08-16T00:11:36.400-0400","caller":"persistence/badger.store.go:35","msg":"Writing to memtable"}
+{"level":"debug","ts":"2025-08-16T00:11:36.400-0400","caller":"persistence/badger.store.go:35","msg":"Sending updates to subscribers"}
+{"level":"debug","ts":"2025-08-16T00:11:36.400-0400","caller":"persistence/badger.store.go:35","msg":"2 entries written"}
+{"level":"debug","ts":"2025-08-16T00:11:36.400-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec5","total_vectors":6}
+{"level":"info","ts":"2025-08-16T00:11:36.400-0400","caller":"engine/engine.go:136","msg":"Vector inserted successfully","id":"vec5","dimensions":128}
+{"level":"debug","ts":"2025-08-16T00:11:36.400-0400","caller":"persistence/badger.store.go:35","msg":"writeRequests called. Writing to value log"}
+{"level":"debug","ts":"2025-08-16T00:11:36.400-0400","caller":"persistence/badger.store.go:35","msg":"Writing to memtable"}
+{"level":"debug","ts":"2025-08-16T00:11:36.400-0400","caller":"persistence/badger.store.go:35","msg":"Sending updates to subscribers"}
+{"level":"debug","ts":"2025-08-16T00:11:36.400-0400","caller":"persistence/badger.store.go:35","msg":"2 entries written"}
+{"level":"debug","ts":"2025-08-16T00:11:36.400-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec6","total_vectors":7}
+{"level":"info","ts":"2025-08-16T00:11:36.401-0400","caller":"engine/engine.go:136","msg":"Vector inserted successfully","id":"vec6","dimensions":128}
+{"level":"debug","ts":"2025-08-16T00:11:36.401-0400","caller":"persistence/badger.store.go:35","msg":"writeRequests called. Writing to value log"}
+{"level":"debug","ts":"2025-08-16T00:11:36.401-0400","caller":"persistence/badger.store.go:35","msg":"Writing to memtable"}
+{"level":"debug","ts":"2025-08-16T00:11:36.401-0400","caller":"persistence/badger.store.go:35","msg":"Sending updates to subscribers"}
+{"level":"debug","ts":"2025-08-16T00:11:36.401-0400","caller":"persistence/badger.store.go:35","msg":"2 entries written"}
+{"level":"debug","ts":"2025-08-16T00:11:36.401-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec7","total_vectors":8}
+{"level":"info","ts":"2025-08-16T00:11:36.401-0400","caller":"engine/engine.go:136","msg":"Vector inserted successfully","id":"vec7","dimensions":128}
+{"level":"debug","ts":"2025-08-16T00:11:36.401-0400","caller":"persistence/badger.store.go:35","msg":"writeRequests called. Writing to value log"}
+{"level":"debug","ts":"2025-08-16T00:11:36.401-0400","caller":"persistence/badger.store.go:35","msg":"Writing to memtable"}
+{"level":"debug","ts":"2025-08-16T00:11:36.401-0400","caller":"persistence/badger.store.go:35","msg":"Sending updates to subscribers"}
+{"level":"debug","ts":"2025-08-16T00:11:36.401-0400","caller":"persistence/badger.store.go:35","msg":"2 entries written"}
+{"level":"debug","ts":"2025-08-16T00:11:36.401-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec8","total_vectors":9}
+{"level":"info","ts":"2025-08-16T00:11:36.401-0400","caller":"engine/engine.go:136","msg":"Vector inserted successfully","id":"vec8","dimensions":128}
+{"level":"debug","ts":"2025-08-16T00:11:36.401-0400","caller":"persistence/badger.store.go:35","msg":"writeRequests called. Writing to value log"}
+{"level":"debug","ts":"2025-08-16T00:11:36.401-0400","caller":"persistence/badger.store.go:35","msg":"Writing to memtable"}
+{"level":"debug","ts":"2025-08-16T00:11:36.401-0400","caller":"persistence/badger.store.go:35","msg":"Sending updates to subscribers"}
+{"level":"debug","ts":"2025-08-16T00:11:36.401-0400","caller":"persistence/badger.store.go:35","msg":"2 entries written"}
+{"level":"debug","ts":"2025-08-16T00:11:36.401-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec9","total_vectors":10}
+{"level":"info","ts":"2025-08-16T00:11:36.401-0400","caller":"engine/engine.go:136","msg":"Vector inserted successfully","id":"vec9","dimensions":128}
+{"level":"debug","ts":"2025-08-16T00:11:36.401-0400","caller":"index/hnswIndex.go:149","msg":"Search completed","results":3,"requested_k":3}
+{"level":"debug","ts":"2025-08-16T00:11:36.401-0400","caller":"engine/engine.go:192","msg":"Search completed","results_returned":3,"index_results":3,"index_time":"24.959µs","hydrate_time":"91µs","total_time":"119.417µs"}
+{"level":"info","ts":"2025-08-16T00:11:36.401-0400","caller":"engine/engine.go:315","msg":"Stopping engine..."}
+{"level":"debug","ts":"2025-08-16T00:11:36.401-0400","caller":"persistence/badger.store.go:35","msg":"Closing database"}
+{"level":"info","ts":"2025-08-16T00:11:36.401-0400","caller":"persistence/badger.store.go:32","msg":"Lifetime L0 stalled for: 0s\n"}
+{"level":"debug","ts":"2025-08-16T00:11:36.401-0400","caller":"persistence/badger.store.go:35","msg":"Flushing memtable"}
+{"level":"debug","ts":"2025-08-16T00:11:36.401-0400","caller":"persistence/badger.store.go:35","msg":"pushed to flush chan\n"}
+{"level":"debug","ts":"2025-08-16T00:11:36.407-0400","caller":"persistence/badger.store.go:35","msg":"Stopping garbage collection of values."}
+{"level":"info","ts":"2025-08-16T00:11:36.408-0400","caller":"persistence/badger.store.go:32","msg":"\nLevel 0 [ ]: NumTables: 01. Size: 12 KiB of 0 B. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 64 MiB\nLevel 1 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 2 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 3 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 4 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 5 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 6 [B]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel Done\n"}
+{"level":"debug","ts":"2025-08-16T00:11:36.408-0400","caller":"persistence/badger.store.go:35","msg":"Waiting for closer"}
+{"level":"info","ts":"2025-08-16T00:11:36.416-0400","caller":"engine/engine.go:324","msg":"Engine stopped successfully"}
+{"level":"info","ts":"2025-08-16T00:11:36.418-0400","caller":"persistence/badger.store.go:32","msg":"All 1 tables opened in 0s\n"}
+{"level":"info","ts":"2025-08-16T00:11:36.422-0400","caller":"persistence/badger.store.go:32","msg":"Discard stats nextEmptySlot: 0\n"}
+{"level":"info","ts":"2025-08-16T00:11:36.422-0400","caller":"persistence/badger.store.go:32","msg":"Set nextTxnTs to 10"}
+{"level":"info","ts":"2025-08-16T00:11:36.422-0400","caller":"persistence/badger.store.go:32","msg":"Deleting empty file: /var/folders/6r/jm1qnztn1gzby9df8c3kq9hw0000gn/T/TestCompleteFlow3133461360/001/000001.vlog"}
+{"level":"info","ts":"2025-08-16T00:11:36.423-0400","caller":"engine/engine.go:53","msg":"Starting vector engine, rebuilding HSNW index from storage. "}
+{"level":"debug","ts":"2025-08-16T00:11:36.423-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec0","total_vectors":1}
+{"level":"debug","ts":"2025-08-16T00:11:36.423-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec1","total_vectors":2}
+{"level":"debug","ts":"2025-08-16T00:11:36.423-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec2","total_vectors":3}
+{"level":"debug","ts":"2025-08-16T00:11:36.423-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec3","total_vectors":4}
+{"level":"debug","ts":"2025-08-16T00:11:36.423-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec4","total_vectors":5}
+{"level":"debug","ts":"2025-08-16T00:11:36.423-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec5","total_vectors":6}
+{"level":"debug","ts":"2025-08-16T00:11:36.423-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec6","total_vectors":7}
+{"level":"debug","ts":"2025-08-16T00:11:36.423-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec7","total_vectors":8}
+{"level":"debug","ts":"2025-08-16T00:11:36.423-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec8","total_vectors":9}
+{"level":"debug","ts":"2025-08-16T00:11:36.423-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec9","total_vectors":10}
+{"level":"info","ts":"2025-08-16T00:11:36.423-0400","caller":"engine/engine.go:103","msg":"Engine started successfully","vectors_indexed":10,"errors":0,"startup_time":"355.042µs"}
+{"level":"debug","ts":"2025-08-16T00:11:36.423-0400","caller":"persistence/badger.store.go:35","msg":"writeRequests called. Writing to value log"}
+{"level":"debug","ts":"2025-08-16T00:11:36.423-0400","caller":"persistence/badger.store.go:35","msg":"Writing to memtable"}
+{"level":"debug","ts":"2025-08-16T00:11:36.423-0400","caller":"persistence/badger.store.go:35","msg":"Sending updates to subscribers"}
+{"level":"debug","ts":"2025-08-16T00:11:36.423-0400","caller":"persistence/badger.store.go:35","msg":"2 entries written"}
+{"level":"debug","ts":"2025-08-16T00:11:36.423-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"persistent","total_vectors":11}
+{"level":"info","ts":"2025-08-16T00:11:36.423-0400","caller":"engine/engine.go:136","msg":"Vector inserted successfully","id":"persistent","dimensions":128}
+{"level":"info","ts":"2025-08-16T00:11:36.423-0400","caller":"engine/engine.go:315","msg":"Stopping engine..."}
+{"level":"debug","ts":"2025-08-16T00:11:36.423-0400","caller":"persistence/badger.store.go:35","msg":"Closing database"}
+{"level":"info","ts":"2025-08-16T00:11:36.423-0400","caller":"persistence/badger.store.go:32","msg":"Lifetime L0 stalled for: 0s\n"}
+{"level":"debug","ts":"2025-08-16T00:11:36.423-0400","caller":"persistence/badger.store.go:35","msg":"Flushing memtable"}
+{"level":"debug","ts":"2025-08-16T00:11:36.423-0400","caller":"persistence/badger.store.go:35","msg":"pushed to flush chan\n"}
+{"level":"debug","ts":"2025-08-16T00:11:36.431-0400","caller":"persistence/badger.store.go:35","msg":"Stopping garbage collection of values."}
+{"level":"info","ts":"2025-08-16T00:11:36.432-0400","caller":"persistence/badger.store.go:32","msg":"\nLevel 0 [ ]: NumTables: 02. Size: 13 KiB of 0 B. Score: 1.00->100.00 StaleData: 0 B Target FileSize: 64 MiB\nLevel 1 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 2 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 3 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 4 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 5 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 6 [B]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel Done\n"}
+{"level":"debug","ts":"2025-08-16T00:11:36.432-0400","caller":"persistence/badger.store.go:35","msg":"Waiting for closer"}
+{"level":"info","ts":"2025-08-16T00:11:36.439-0400","caller":"engine/engine.go:324","msg":"Engine stopped successfully"}
+{"level":"info","ts":"2025-08-16T00:11:36.451-0400","caller":"persistence/badger.store.go:32","msg":"All 2 tables opened in 0s\n"}
+{"level":"info","ts":"2025-08-16T00:11:36.455-0400","caller":"persistence/badger.store.go:32","msg":"Discard stats nextEmptySlot: 0\n"}
+{"level":"info","ts":"2025-08-16T00:11:36.455-0400","caller":"persistence/badger.store.go:32","msg":"Set nextTxnTs to 11"}
+{"level":"info","ts":"2025-08-16T00:11:36.456-0400","caller":"persistence/badger.store.go:32","msg":"Deleting empty file: /var/folders/6r/jm1qnztn1gzby9df8c3kq9hw0000gn/T/TestCompleteFlow3133461360/001/000002.vlog"}
+{"level":"info","ts":"2025-08-16T00:11:36.456-0400","caller":"engine/engine.go:53","msg":"Starting vector engine, rebuilding HSNW index from storage. "}
+{"level":"debug","ts":"2025-08-16T00:11:36.456-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"persistent","total_vectors":1}
+{"level":"debug","ts":"2025-08-16T00:11:36.456-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec0","total_vectors":2}
+{"level":"debug","ts":"2025-08-16T00:11:36.456-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec1","total_vectors":3}
+{"level":"debug","ts":"2025-08-16T00:11:36.456-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec2","total_vectors":4}
+{"level":"debug","ts":"2025-08-16T00:11:36.456-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec3","total_vectors":5}
+{"level":"debug","ts":"2025-08-16T00:11:36.456-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec4","total_vectors":6}
+{"level":"debug","ts":"2025-08-16T00:11:36.456-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec5","total_vectors":7}
+{"level":"debug","ts":"2025-08-16T00:11:36.456-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec6","total_vectors":8}
+{"level":"debug","ts":"2025-08-16T00:11:36.456-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec7","total_vectors":9}
+{"level":"debug","ts":"2025-08-16T00:11:36.456-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec8","total_vectors":10}
+{"level":"debug","ts":"2025-08-16T00:11:36.456-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec9","total_vectors":11}
+{"level":"info","ts":"2025-08-16T00:11:36.456-0400","caller":"engine/engine.go:103","msg":"Engine started successfully","vectors_indexed":11,"errors":0,"startup_time":"384.208µs"}
+{"level":"info","ts":"2025-08-16T00:11:36.456-0400","caller":"engine/engine.go:315","msg":"Stopping engine..."}
+{"level":"debug","ts":"2025-08-16T00:11:36.456-0400","caller":"persistence/badger.store.go:35","msg":"Closing database"}
+{"level":"info","ts":"2025-08-16T00:11:36.456-0400","caller":"persistence/badger.store.go:32","msg":"Lifetime L0 stalled for: 0s\n"}
+{"level":"debug","ts":"2025-08-16T00:11:36.456-0400","caller":"persistence/badger.store.go:35","msg":"Stopping garbage collection of values."}
+{"level":"info","ts":"2025-08-16T00:11:36.457-0400","caller":"persistence/badger.store.go:32","msg":"\nLevel 0 [ ]: NumTables: 02. Size: 13 KiB of 0 B. Score: 1.00->100.00 StaleData: 0 B Target FileSize: 64 MiB\nLevel 1 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 2 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 3 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 4 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 5 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 6 [B]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel Done\n"}
+{"level":"debug","ts":"2025-08-16T00:11:36.457-0400","caller":"persistence/badger.store.go:35","msg":"Waiting for closer"}
+{"level":"info","ts":"2025-08-16T00:11:36.464-0400","caller":"engine/engine.go:324","msg":"Engine stopped successfully"}
+{"level":"info","ts":"2025-08-16T00:12:16.671-0400","caller":"persistence/badger.store.go:32","msg":"All 0 tables opened in 0s\n"}
+{"level":"info","ts":"2025-08-16T00:12:16.680-0400","caller":"persistence/badger.store.go:32","msg":"Discard stats nextEmptySlot: 0\n"}
+{"level":"info","ts":"2025-08-16T00:12:16.680-0400","caller":"persistence/badger.store.go:32","msg":"Set nextTxnTs to 0"}
+{"level":"info","ts":"2025-08-16T00:12:16.686-0400","caller":"engine/engine.go:53","msg":"Starting vector engine, rebuilding HSNW index from storage. "}
+{"level":"info","ts":"2025-08-16T00:12:16.686-0400","caller":"engine/engine.go:103","msg":"Engine started successfully","vectors_indexed":0,"errors":0,"startup_time":"19.959µs"}
+{"level":"info","ts":"2025-08-16T00:12:16.686-0400","caller":"engine/engine.go:315","msg":"Stopping engine..."}
+{"level":"debug","ts":"2025-08-16T00:12:16.686-0400","caller":"persistence/badger.store.go:35","msg":"Closing database"}
+{"level":"info","ts":"2025-08-16T00:12:16.686-0400","caller":"persistence/badger.store.go:32","msg":"Lifetime L0 stalled for: 0s\n"}
+{"level":"debug","ts":"2025-08-16T00:12:16.686-0400","caller":"persistence/badger.store.go:35","msg":"Stopping garbage collection of values."}
+{"level":"info","ts":"2025-08-16T00:12:16.688-0400","caller":"persistence/badger.store.go:32","msg":"\nLevel 0 [ ]: NumTables: 00. Size: 0 B of 0 B. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 64 MiB\nLevel 1 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 2 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 3 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 4 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 5 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 6 [B]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel Done\n"}
+{"level":"debug","ts":"2025-08-16T00:12:16.688-0400","caller":"persistence/badger.store.go:35","msg":"Waiting for closer"}
+{"level":"info","ts":"2025-08-16T00:12:16.694-0400","caller":"engine/engine.go:324","msg":"Engine stopped successfully"}
+{"level":"info","ts":"2025-08-16T00:12:16.698-0400","caller":"persistence/badger.store.go:32","msg":"All 0 tables opened in 0s\n"}
+{"level":"info","ts":"2025-08-16T00:12:16.706-0400","caller":"persistence/badger.store.go:32","msg":"Discard stats nextEmptySlot: 0\n"}
+{"level":"info","ts":"2025-08-16T00:12:16.706-0400","caller":"persistence/badger.store.go:32","msg":"Set nextTxnTs to 0"}
+{"level":"info","ts":"2025-08-16T00:12:16.707-0400","caller":"engine/engine.go:53","msg":"Starting vector engine, rebuilding HSNW index from storage. "}
+{"level":"info","ts":"2025-08-16T00:12:16.707-0400","caller":"engine/engine.go:103","msg":"Engine started successfully","vectors_indexed":0,"errors":0,"startup_time":"10.334µs"}
+{"level":"debug","ts":"2025-08-16T00:12:16.707-0400","caller":"persistence/badger.store.go:35","msg":"writeRequests called. Writing to value log"}
+{"level":"debug","ts":"2025-08-16T00:12:16.707-0400","caller":"persistence/badger.store.go:35","msg":"Writing to memtable"}
+{"level":"debug","ts":"2025-08-16T00:12:16.707-0400","caller":"persistence/badger.store.go:35","msg":"Sending updates to subscribers"}
+{"level":"debug","ts":"2025-08-16T00:12:16.707-0400","caller":"persistence/badger.store.go:35","msg":"2 entries written"}
+{"level":"debug","ts":"2025-08-16T00:12:16.707-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec0","total_vectors":1}
+{"level":"info","ts":"2025-08-16T00:12:16.707-0400","caller":"engine/engine.go:136","msg":"Vector inserted successfully","id":"vec0","dimensions":128}
+{"level":"debug","ts":"2025-08-16T00:12:16.708-0400","caller":"persistence/badger.store.go:35","msg":"writeRequests called. Writing to value log"}
+{"level":"debug","ts":"2025-08-16T00:12:16.708-0400","caller":"persistence/badger.store.go:35","msg":"Writing to memtable"}
+{"level":"debug","ts":"2025-08-16T00:12:16.708-0400","caller":"persistence/badger.store.go:35","msg":"Sending updates to subscribers"}
+{"level":"debug","ts":"2025-08-16T00:12:16.708-0400","caller":"persistence/badger.store.go:35","msg":"2 entries written"}
+{"level":"debug","ts":"2025-08-16T00:12:16.708-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec1","total_vectors":2}
+{"level":"info","ts":"2025-08-16T00:12:16.708-0400","caller":"engine/engine.go:136","msg":"Vector inserted successfully","id":"vec1","dimensions":128}
+{"level":"debug","ts":"2025-08-16T00:12:16.708-0400","caller":"persistence/badger.store.go:35","msg":"writeRequests called. Writing to value log"}
+{"level":"debug","ts":"2025-08-16T00:12:16.709-0400","caller":"persistence/badger.store.go:35","msg":"Writing to memtable"}
+{"level":"debug","ts":"2025-08-16T00:12:16.709-0400","caller":"persistence/badger.store.go:35","msg":"Sending updates to subscribers"}
+{"level":"debug","ts":"2025-08-16T00:12:16.709-0400","caller":"persistence/badger.store.go:35","msg":"2 entries written"}
+{"level":"debug","ts":"2025-08-16T00:12:16.709-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec2","total_vectors":3}
+{"level":"info","ts":"2025-08-16T00:12:16.709-0400","caller":"engine/engine.go:136","msg":"Vector inserted successfully","id":"vec2","dimensions":128}
+{"level":"debug","ts":"2025-08-16T00:12:16.709-0400","caller":"persistence/badger.store.go:35","msg":"writeRequests called. Writing to value log"}
+{"level":"debug","ts":"2025-08-16T00:12:16.709-0400","caller":"persistence/badger.store.go:35","msg":"Writing to memtable"}
+{"level":"debug","ts":"2025-08-16T00:12:16.709-0400","caller":"persistence/badger.store.go:35","msg":"Sending updates to subscribers"}
+{"level":"debug","ts":"2025-08-16T00:12:16.709-0400","caller":"persistence/badger.store.go:35","msg":"2 entries written"}
+{"level":"debug","ts":"2025-08-16T00:12:16.709-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec3","total_vectors":4}
+{"level":"info","ts":"2025-08-16T00:12:16.709-0400","caller":"engine/engine.go:136","msg":"Vector inserted successfully","id":"vec3","dimensions":128}
+{"level":"debug","ts":"2025-08-16T00:12:16.709-0400","caller":"persistence/badger.store.go:35","msg":"writeRequests called. Writing to value log"}
+{"level":"debug","ts":"2025-08-16T00:12:16.710-0400","caller":"persistence/badger.store.go:35","msg":"Writing to memtable"}
+{"level":"debug","ts":"2025-08-16T00:12:16.710-0400","caller":"persistence/badger.store.go:35","msg":"Sending updates to subscribers"}
+{"level":"debug","ts":"2025-08-16T00:12:16.710-0400","caller":"persistence/badger.store.go:35","msg":"2 entries written"}
+{"level":"debug","ts":"2025-08-16T00:12:16.710-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec4","total_vectors":5}
+{"level":"info","ts":"2025-08-16T00:12:16.710-0400","caller":"engine/engine.go:136","msg":"Vector inserted successfully","id":"vec4","dimensions":128}
+{"level":"debug","ts":"2025-08-16T00:12:16.710-0400","caller":"persistence/badger.store.go:35","msg":"writeRequests called. Writing to value log"}
+{"level":"debug","ts":"2025-08-16T00:12:16.710-0400","caller":"persistence/badger.store.go:35","msg":"Writing to memtable"}
+{"level":"debug","ts":"2025-08-16T00:12:16.710-0400","caller":"persistence/badger.store.go:35","msg":"Sending updates to subscribers"}
+{"level":"debug","ts":"2025-08-16T00:12:16.710-0400","caller":"persistence/badger.store.go:35","msg":"2 entries written"}
+{"level":"debug","ts":"2025-08-16T00:12:16.710-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec5","total_vectors":6}
+{"level":"info","ts":"2025-08-16T00:12:16.710-0400","caller":"engine/engine.go:136","msg":"Vector inserted successfully","id":"vec5","dimensions":128}
+{"level":"debug","ts":"2025-08-16T00:12:16.710-0400","caller":"persistence/badger.store.go:35","msg":"writeRequests called. Writing to value log"}
+{"level":"debug","ts":"2025-08-16T00:12:16.710-0400","caller":"persistence/badger.store.go:35","msg":"Writing to memtable"}
+{"level":"debug","ts":"2025-08-16T00:12:16.710-0400","caller":"persistence/badger.store.go:35","msg":"Sending updates to subscribers"}
+{"level":"debug","ts":"2025-08-16T00:12:16.710-0400","caller":"persistence/badger.store.go:35","msg":"2 entries written"}
+{"level":"debug","ts":"2025-08-16T00:12:16.710-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec6","total_vectors":7}
+{"level":"info","ts":"2025-08-16T00:12:16.710-0400","caller":"engine/engine.go:136","msg":"Vector inserted successfully","id":"vec6","dimensions":128}
+{"level":"debug","ts":"2025-08-16T00:12:16.710-0400","caller":"persistence/badger.store.go:35","msg":"writeRequests called. Writing to value log"}
+{"level":"debug","ts":"2025-08-16T00:12:16.710-0400","caller":"persistence/badger.store.go:35","msg":"Writing to memtable"}
+{"level":"debug","ts":"2025-08-16T00:12:16.710-0400","caller":"persistence/badger.store.go:35","msg":"Sending updates to subscribers"}
+{"level":"debug","ts":"2025-08-16T00:12:16.710-0400","caller":"persistence/badger.store.go:35","msg":"2 entries written"}
+{"level":"debug","ts":"2025-08-16T00:12:16.710-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec7","total_vectors":8}
+{"level":"info","ts":"2025-08-16T00:12:16.710-0400","caller":"engine/engine.go:136","msg":"Vector inserted successfully","id":"vec7","dimensions":128}
+{"level":"debug","ts":"2025-08-16T00:12:16.710-0400","caller":"persistence/badger.store.go:35","msg":"writeRequests called. Writing to value log"}
+{"level":"debug","ts":"2025-08-16T00:12:16.710-0400","caller":"persistence/badger.store.go:35","msg":"Writing to memtable"}
+{"level":"debug","ts":"2025-08-16T00:12:16.710-0400","caller":"persistence/badger.store.go:35","msg":"Sending updates to subscribers"}
+{"level":"debug","ts":"2025-08-16T00:12:16.710-0400","caller":"persistence/badger.store.go:35","msg":"2 entries written"}
+{"level":"debug","ts":"2025-08-16T00:12:16.712-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec8","total_vectors":9}
+{"level":"info","ts":"2025-08-16T00:12:16.712-0400","caller":"engine/engine.go:136","msg":"Vector inserted successfully","id":"vec8","dimensions":128}
+{"level":"debug","ts":"2025-08-16T00:12:16.712-0400","caller":"persistence/badger.store.go:35","msg":"writeRequests called. Writing to value log"}
+{"level":"debug","ts":"2025-08-16T00:12:16.712-0400","caller":"persistence/badger.store.go:35","msg":"Writing to memtable"}
+{"level":"debug","ts":"2025-08-16T00:12:16.712-0400","caller":"persistence/badger.store.go:35","msg":"Sending updates to subscribers"}
+{"level":"debug","ts":"2025-08-16T00:12:16.712-0400","caller":"persistence/badger.store.go:35","msg":"2 entries written"}
+{"level":"debug","ts":"2025-08-16T00:12:16.712-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec9","total_vectors":10}
+{"level":"info","ts":"2025-08-16T00:12:16.712-0400","caller":"engine/engine.go:136","msg":"Vector inserted successfully","id":"vec9","dimensions":128}
+{"level":"debug","ts":"2025-08-16T00:12:16.712-0400","caller":"index/hnswIndex.go:149","msg":"Search completed","results":3,"requested_k":3}
+{"level":"debug","ts":"2025-08-16T00:12:16.713-0400","caller":"engine/engine.go:192","msg":"Search completed","results_returned":3,"index_results":3,"index_time":"20.541µs","hydrate_time":"115.083µs","total_time":"135.875µs"}
+{"level":"info","ts":"2025-08-16T00:12:16.713-0400","caller":"engine/engine.go:315","msg":"Stopping engine..."}
+{"level":"debug","ts":"2025-08-16T00:12:16.713-0400","caller":"persistence/badger.store.go:35","msg":"Closing database"}
+{"level":"info","ts":"2025-08-16T00:12:16.713-0400","caller":"persistence/badger.store.go:32","msg":"Lifetime L0 stalled for: 0s\n"}
+{"level":"debug","ts":"2025-08-16T00:12:16.713-0400","caller":"persistence/badger.store.go:35","msg":"Flushing memtable"}
+{"level":"debug","ts":"2025-08-16T00:12:16.713-0400","caller":"persistence/badger.store.go:35","msg":"pushed to flush chan\n"}
+{"level":"debug","ts":"2025-08-16T00:12:16.725-0400","caller":"persistence/badger.store.go:35","msg":"Stopping garbage collection of values."}
+{"level":"info","ts":"2025-08-16T00:12:16.726-0400","caller":"persistence/badger.store.go:32","msg":"\nLevel 0 [ ]: NumTables: 01. Size: 12 KiB of 0 B. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 64 MiB\nLevel 1 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 2 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 3 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 4 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 5 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 6 [B]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel Done\n"}
+{"level":"debug","ts":"2025-08-16T00:12:16.726-0400","caller":"persistence/badger.store.go:35","msg":"Waiting for closer"}
+{"level":"info","ts":"2025-08-16T00:12:16.735-0400","caller":"engine/engine.go:324","msg":"Engine stopped successfully"}
+{"level":"info","ts":"2025-08-16T00:12:16.737-0400","caller":"persistence/badger.store.go:32","msg":"All 1 tables opened in 0s\n"}
+{"level":"info","ts":"2025-08-16T00:12:16.740-0400","caller":"persistence/badger.store.go:32","msg":"Discard stats nextEmptySlot: 0\n"}
+{"level":"info","ts":"2025-08-16T00:12:16.740-0400","caller":"persistence/badger.store.go:32","msg":"Set nextTxnTs to 10"}
+{"level":"info","ts":"2025-08-16T00:12:16.740-0400","caller":"persistence/badger.store.go:32","msg":"Deleting empty file: /var/folders/6r/jm1qnztn1gzby9df8c3kq9hw0000gn/T/TestCompleteFlow3720559978/001/000001.vlog"}
+{"level":"info","ts":"2025-08-16T00:12:16.741-0400","caller":"engine/engine.go:53","msg":"Starting vector engine, rebuilding HSNW index from storage. "}
+{"level":"debug","ts":"2025-08-16T00:12:16.741-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec0","total_vectors":1}
+{"level":"debug","ts":"2025-08-16T00:12:16.741-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec1","total_vectors":2}
+{"level":"debug","ts":"2025-08-16T00:12:16.741-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec2","total_vectors":3}
+{"level":"debug","ts":"2025-08-16T00:12:16.741-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec3","total_vectors":4}
+{"level":"debug","ts":"2025-08-16T00:12:16.741-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec4","total_vectors":5}
+{"level":"debug","ts":"2025-08-16T00:12:16.741-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec5","total_vectors":6}
+{"level":"debug","ts":"2025-08-16T00:12:16.741-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec6","total_vectors":7}
+{"level":"debug","ts":"2025-08-16T00:12:16.741-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec7","total_vectors":8}
+{"level":"debug","ts":"2025-08-16T00:12:16.741-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec8","total_vectors":9}
+{"level":"debug","ts":"2025-08-16T00:12:16.741-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec9","total_vectors":10}
+{"level":"info","ts":"2025-08-16T00:12:16.741-0400","caller":"engine/engine.go:103","msg":"Engine started successfully","vectors_indexed":10,"errors":0,"startup_time":"342.042µs"}
+{"level":"debug","ts":"2025-08-16T00:12:16.741-0400","caller":"persistence/badger.store.go:35","msg":"writeRequests called. Writing to value log"}
+{"level":"debug","ts":"2025-08-16T00:12:16.741-0400","caller":"persistence/badger.store.go:35","msg":"Writing to memtable"}
+{"level":"debug","ts":"2025-08-16T00:12:16.741-0400","caller":"persistence/badger.store.go:35","msg":"Sending updates to subscribers"}
+{"level":"debug","ts":"2025-08-16T00:12:16.741-0400","caller":"persistence/badger.store.go:35","msg":"2 entries written"}
+{"level":"debug","ts":"2025-08-16T00:12:16.741-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"persistent","total_vectors":11}
+{"level":"info","ts":"2025-08-16T00:12:16.741-0400","caller":"engine/engine.go:136","msg":"Vector inserted successfully","id":"persistent","dimensions":128}
+{"level":"info","ts":"2025-08-16T00:12:16.741-0400","caller":"engine/engine.go:315","msg":"Stopping engine..."}
+{"level":"debug","ts":"2025-08-16T00:12:16.741-0400","caller":"persistence/badger.store.go:35","msg":"Closing database"}
+{"level":"info","ts":"2025-08-16T00:12:16.741-0400","caller":"persistence/badger.store.go:32","msg":"Lifetime L0 stalled for: 0s\n"}
+{"level":"debug","ts":"2025-08-16T00:12:16.741-0400","caller":"persistence/badger.store.go:35","msg":"Flushing memtable"}
+{"level":"debug","ts":"2025-08-16T00:12:16.741-0400","caller":"persistence/badger.store.go:35","msg":"pushed to flush chan\n"}
+{"level":"debug","ts":"2025-08-16T00:12:16.746-0400","caller":"persistence/badger.store.go:35","msg":"Stopping garbage collection of values."}
+{"level":"info","ts":"2025-08-16T00:12:16.747-0400","caller":"persistence/badger.store.go:32","msg":"\nLevel 0 [ ]: NumTables: 02. Size: 13 KiB of 0 B. Score: 1.00->100.00 StaleData: 0 B Target FileSize: 64 MiB\nLevel 1 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 2 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 3 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 4 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 5 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 6 [B]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel Done\n"}
+{"level":"debug","ts":"2025-08-16T00:12:16.747-0400","caller":"persistence/badger.store.go:35","msg":"Waiting for closer"}
+{"level":"info","ts":"2025-08-16T00:12:16.750-0400","caller":"engine/engine.go:324","msg":"Engine stopped successfully"}
+{"level":"info","ts":"2025-08-16T00:12:16.766-0400","caller":"persistence/badger.store.go:32","msg":"All 2 tables opened in 0s\n"}
+{"level":"info","ts":"2025-08-16T00:12:16.770-0400","caller":"persistence/badger.store.go:32","msg":"Discard stats nextEmptySlot: 0\n"}
+{"level":"info","ts":"2025-08-16T00:12:16.770-0400","caller":"persistence/badger.store.go:32","msg":"Set nextTxnTs to 11"}
+{"level":"info","ts":"2025-08-16T00:12:16.771-0400","caller":"persistence/badger.store.go:32","msg":"Deleting empty file: /var/folders/6r/jm1qnztn1gzby9df8c3kq9hw0000gn/T/TestCompleteFlow3720559978/001/000002.vlog"}
+{"level":"info","ts":"2025-08-16T00:12:16.771-0400","caller":"engine/engine.go:53","msg":"Starting vector engine, rebuilding HSNW index from storage. "}
+{"level":"debug","ts":"2025-08-16T00:12:16.771-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"persistent","total_vectors":1}
+{"level":"debug","ts":"2025-08-16T00:12:16.771-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec0","total_vectors":2}
+{"level":"debug","ts":"2025-08-16T00:12:16.771-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec1","total_vectors":3}
+{"level":"debug","ts":"2025-08-16T00:12:16.771-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec2","total_vectors":4}
+{"level":"debug","ts":"2025-08-16T00:12:16.771-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec3","total_vectors":5}
+{"level":"debug","ts":"2025-08-16T00:12:16.771-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec4","total_vectors":6}
+{"level":"debug","ts":"2025-08-16T00:12:16.771-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec5","total_vectors":7}
+{"level":"debug","ts":"2025-08-16T00:12:16.771-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec6","total_vectors":8}
+{"level":"debug","ts":"2025-08-16T00:12:16.771-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec7","total_vectors":9}
+{"level":"debug","ts":"2025-08-16T00:12:16.771-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec8","total_vectors":10}
+{"level":"debug","ts":"2025-08-16T00:12:16.771-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec9","total_vectors":11}
+{"level":"info","ts":"2025-08-16T00:12:16.771-0400","caller":"engine/engine.go:103","msg":"Engine started successfully","vectors_indexed":11,"errors":0,"startup_time":"400.542µs"}
+{"level":"info","ts":"2025-08-16T00:12:16.772-0400","caller":"engine/engine.go:315","msg":"Stopping engine..."}
+{"level":"debug","ts":"2025-08-16T00:12:16.772-0400","caller":"persistence/badger.store.go:35","msg":"Closing database"}
+{"level":"info","ts":"2025-08-16T00:12:16.772-0400","caller":"persistence/badger.store.go:32","msg":"Lifetime L0 stalled for: 0s\n"}
+{"level":"debug","ts":"2025-08-16T00:12:16.772-0400","caller":"persistence/badger.store.go:35","msg":"Stopping garbage collection of values."}
+{"level":"info","ts":"2025-08-16T00:12:16.772-0400","caller":"persistence/badger.store.go:32","msg":"\nLevel 0 [ ]: NumTables: 02. Size: 13 KiB of 0 B. Score: 1.00->100.00 StaleData: 0 B Target FileSize: 64 MiB\nLevel 1 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 2 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 3 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 4 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 5 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 6 [B]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel Done\n"}
+{"level":"debug","ts":"2025-08-16T00:12:16.772-0400","caller":"persistence/badger.store.go:35","msg":"Waiting for closer"}
+{"level":"info","ts":"2025-08-16T00:12:16.781-0400","caller":"engine/engine.go:324","msg":"Engine stopped successfully"}
+{"level":"info","ts":"2025-08-16T00:12:31.822-0400","caller":"persistence/badger.store.go:32","msg":"All 0 tables opened in 0s\n"}
+{"level":"info","ts":"2025-08-16T00:12:31.827-0400","caller":"persistence/badger.store.go:32","msg":"Discard stats nextEmptySlot: 0\n"}
+{"level":"info","ts":"2025-08-16T00:12:31.827-0400","caller":"persistence/badger.store.go:32","msg":"Set nextTxnTs to 0"}
+{"level":"info","ts":"2025-08-16T00:12:31.828-0400","caller":"engine/engine.go:53","msg":"Starting vector engine, rebuilding HSNW index from storage. "}
+{"level":"info","ts":"2025-08-16T00:12:31.828-0400","caller":"engine/engine.go:103","msg":"Engine started successfully","vectors_indexed":0,"errors":0,"startup_time":"21.708µs"}
+{"level":"info","ts":"2025-08-16T00:12:31.828-0400","caller":"engine/engine.go:315","msg":"Stopping engine..."}
+{"level":"debug","ts":"2025-08-16T00:12:31.828-0400","caller":"persistence/badger.store.go:35","msg":"Closing database"}
+{"level":"info","ts":"2025-08-16T00:12:31.828-0400","caller":"persistence/badger.store.go:32","msg":"Lifetime L0 stalled for: 0s\n"}
+{"level":"debug","ts":"2025-08-16T00:12:31.828-0400","caller":"persistence/badger.store.go:35","msg":"Stopping garbage collection of values."}
+{"level":"info","ts":"2025-08-16T00:12:31.828-0400","caller":"persistence/badger.store.go:32","msg":"\nLevel 0 [ ]: NumTables: 00. Size: 0 B of 0 B. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 64 MiB\nLevel 1 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 2 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 3 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 4 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 5 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 6 [B]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel Done\n"}
+{"level":"debug","ts":"2025-08-16T00:12:31.828-0400","caller":"persistence/badger.store.go:35","msg":"Waiting for closer"}
+{"level":"info","ts":"2025-08-16T00:12:31.833-0400","caller":"engine/engine.go:324","msg":"Engine stopped successfully"}
+{"level":"info","ts":"2025-08-16T00:12:31.834-0400","caller":"persistence/badger.store.go:32","msg":"All 0 tables opened in 0s\n"}
+{"level":"info","ts":"2025-08-16T00:12:31.839-0400","caller":"persistence/badger.store.go:32","msg":"Discard stats nextEmptySlot: 0\n"}
+{"level":"info","ts":"2025-08-16T00:12:31.839-0400","caller":"persistence/badger.store.go:32","msg":"Set nextTxnTs to 0"}
+{"level":"info","ts":"2025-08-16T00:12:31.839-0400","caller":"engine/engine.go:53","msg":"Starting vector engine, rebuilding HSNW index from storage. "}
+{"level":"info","ts":"2025-08-16T00:12:31.839-0400","caller":"engine/engine.go:103","msg":"Engine started successfully","vectors_indexed":0,"errors":0,"startup_time":"6.5µs"}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"persistence/badger.store.go:35","msg":"writeRequests called. Writing to value log"}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"persistence/badger.store.go:35","msg":"Writing to memtable"}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"persistence/badger.store.go:35","msg":"Sending updates to subscribers"}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"persistence/badger.store.go:35","msg":"2 entries written"}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec0","total_vectors":1}
+{"level":"info","ts":"2025-08-16T00:12:31.840-0400","caller":"engine/engine.go:136","msg":"Vector inserted successfully","id":"vec0","dimensions":128}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"persistence/badger.store.go:35","msg":"writeRequests called. Writing to value log"}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"persistence/badger.store.go:35","msg":"Writing to memtable"}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"persistence/badger.store.go:35","msg":"Sending updates to subscribers"}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"persistence/badger.store.go:35","msg":"2 entries written"}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec1","total_vectors":2}
+{"level":"info","ts":"2025-08-16T00:12:31.840-0400","caller":"engine/engine.go:136","msg":"Vector inserted successfully","id":"vec1","dimensions":128}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"persistence/badger.store.go:35","msg":"writeRequests called. Writing to value log"}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"persistence/badger.store.go:35","msg":"Writing to memtable"}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"persistence/badger.store.go:35","msg":"Sending updates to subscribers"}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"persistence/badger.store.go:35","msg":"2 entries written"}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec2","total_vectors":3}
+{"level":"info","ts":"2025-08-16T00:12:31.840-0400","caller":"engine/engine.go:136","msg":"Vector inserted successfully","id":"vec2","dimensions":128}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"persistence/badger.store.go:35","msg":"writeRequests called. Writing to value log"}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"persistence/badger.store.go:35","msg":"Writing to memtable"}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"persistence/badger.store.go:35","msg":"Sending updates to subscribers"}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"persistence/badger.store.go:35","msg":"2 entries written"}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec3","total_vectors":4}
+{"level":"info","ts":"2025-08-16T00:12:31.840-0400","caller":"engine/engine.go:136","msg":"Vector inserted successfully","id":"vec3","dimensions":128}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"persistence/badger.store.go:35","msg":"writeRequests called. Writing to value log"}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"persistence/badger.store.go:35","msg":"Writing to memtable"}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"persistence/badger.store.go:35","msg":"Sending updates to subscribers"}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"persistence/badger.store.go:35","msg":"2 entries written"}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec4","total_vectors":5}
+{"level":"info","ts":"2025-08-16T00:12:31.840-0400","caller":"engine/engine.go:136","msg":"Vector inserted successfully","id":"vec4","dimensions":128}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"persistence/badger.store.go:35","msg":"writeRequests called. Writing to value log"}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"persistence/badger.store.go:35","msg":"Writing to memtable"}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"persistence/badger.store.go:35","msg":"Sending updates to subscribers"}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"persistence/badger.store.go:35","msg":"2 entries written"}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec5","total_vectors":6}
+{"level":"info","ts":"2025-08-16T00:12:31.840-0400","caller":"engine/engine.go:136","msg":"Vector inserted successfully","id":"vec5","dimensions":128}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"persistence/badger.store.go:35","msg":"writeRequests called. Writing to value log"}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"persistence/badger.store.go:35","msg":"Writing to memtable"}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"persistence/badger.store.go:35","msg":"Sending updates to subscribers"}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"persistence/badger.store.go:35","msg":"2 entries written"}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec6","total_vectors":7}
+{"level":"info","ts":"2025-08-16T00:12:31.840-0400","caller":"engine/engine.go:136","msg":"Vector inserted successfully","id":"vec6","dimensions":128}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"persistence/badger.store.go:35","msg":"writeRequests called. Writing to value log"}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"persistence/badger.store.go:35","msg":"Writing to memtable"}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"persistence/badger.store.go:35","msg":"Sending updates to subscribers"}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"persistence/badger.store.go:35","msg":"2 entries written"}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec7","total_vectors":8}
+{"level":"info","ts":"2025-08-16T00:12:31.840-0400","caller":"engine/engine.go:136","msg":"Vector inserted successfully","id":"vec7","dimensions":128}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"persistence/badger.store.go:35","msg":"writeRequests called. Writing to value log"}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"persistence/badger.store.go:35","msg":"Writing to memtable"}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"persistence/badger.store.go:35","msg":"Sending updates to subscribers"}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"persistence/badger.store.go:35","msg":"2 entries written"}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec8","total_vectors":9}
+{"level":"info","ts":"2025-08-16T00:12:31.840-0400","caller":"engine/engine.go:136","msg":"Vector inserted successfully","id":"vec8","dimensions":128}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"persistence/badger.store.go:35","msg":"writeRequests called. Writing to value log"}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"persistence/badger.store.go:35","msg":"Writing to memtable"}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"persistence/badger.store.go:35","msg":"Sending updates to subscribers"}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"persistence/badger.store.go:35","msg":"2 entries written"}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec9","total_vectors":10}
+{"level":"info","ts":"2025-08-16T00:12:31.840-0400","caller":"engine/engine.go:136","msg":"Vector inserted successfully","id":"vec9","dimensions":128}
+{"level":"debug","ts":"2025-08-16T00:12:31.840-0400","caller":"index/hnswIndex.go:149","msg":"Search completed","results":3,"requested_k":3}
+{"level":"debug","ts":"2025-08-16T00:12:31.841-0400","caller":"engine/engine.go:192","msg":"Search completed","results_returned":3,"index_results":3,"index_time":"19.625µs","hydrate_time":"96.584µs","total_time":"116.625µs"}
+{"level":"info","ts":"2025-08-16T00:12:31.841-0400","caller":"engine/engine.go:315","msg":"Stopping engine..."}
+{"level":"debug","ts":"2025-08-16T00:12:31.841-0400","caller":"persistence/badger.store.go:35","msg":"Closing database"}
+{"level":"info","ts":"2025-08-16T00:12:31.841-0400","caller":"persistence/badger.store.go:32","msg":"Lifetime L0 stalled for: 0s\n"}
+{"level":"debug","ts":"2025-08-16T00:12:31.841-0400","caller":"persistence/badger.store.go:35","msg":"Flushing memtable"}
+{"level":"debug","ts":"2025-08-16T00:12:31.841-0400","caller":"persistence/badger.store.go:35","msg":"pushed to flush chan\n"}
+{"level":"debug","ts":"2025-08-16T00:12:31.849-0400","caller":"persistence/badger.store.go:35","msg":"Stopping garbage collection of values."}
+{"level":"info","ts":"2025-08-16T00:12:31.850-0400","caller":"persistence/badger.store.go:32","msg":"\nLevel 0 [ ]: NumTables: 01. Size: 12 KiB of 0 B. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 64 MiB\nLevel 1 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 2 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 3 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 4 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 5 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 6 [B]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel Done\n"}
+{"level":"debug","ts":"2025-08-16T00:12:31.850-0400","caller":"persistence/badger.store.go:35","msg":"Waiting for closer"}
+{"level":"info","ts":"2025-08-16T00:12:31.854-0400","caller":"engine/engine.go:324","msg":"Engine stopped successfully"}
+{"level":"info","ts":"2025-08-16T00:12:31.856-0400","caller":"persistence/badger.store.go:32","msg":"All 1 tables opened in 0s\n"}
+{"level":"info","ts":"2025-08-16T00:12:31.861-0400","caller":"persistence/badger.store.go:32","msg":"Discard stats nextEmptySlot: 0\n"}
+{"level":"info","ts":"2025-08-16T00:12:31.861-0400","caller":"persistence/badger.store.go:32","msg":"Set nextTxnTs to 10"}
+{"level":"info","ts":"2025-08-16T00:12:31.861-0400","caller":"persistence/badger.store.go:32","msg":"Deleting empty file: /var/folders/6r/jm1qnztn1gzby9df8c3kq9hw0000gn/T/TestCompleteFlow3184833518/001/000001.vlog"}
+{"level":"info","ts":"2025-08-16T00:12:31.862-0400","caller":"engine/engine.go:53","msg":"Starting vector engine, rebuilding HSNW index from storage. "}
+{"level":"debug","ts":"2025-08-16T00:12:31.862-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec0","total_vectors":1}
+{"level":"debug","ts":"2025-08-16T00:12:31.862-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec1","total_vectors":2}
+{"level":"debug","ts":"2025-08-16T00:12:31.862-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec2","total_vectors":3}
+{"level":"debug","ts":"2025-08-16T00:12:31.862-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec3","total_vectors":4}
+{"level":"debug","ts":"2025-08-16T00:12:31.862-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec4","total_vectors":5}
+{"level":"debug","ts":"2025-08-16T00:12:31.862-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec5","total_vectors":6}
+{"level":"debug","ts":"2025-08-16T00:12:31.862-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec6","total_vectors":7}
+{"level":"debug","ts":"2025-08-16T00:12:31.862-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec7","total_vectors":8}
+{"level":"debug","ts":"2025-08-16T00:12:31.862-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec8","total_vectors":9}
+{"level":"debug","ts":"2025-08-16T00:12:31.862-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec9","total_vectors":10}
+{"level":"info","ts":"2025-08-16T00:12:31.862-0400","caller":"engine/engine.go:103","msg":"Engine started successfully","vectors_indexed":10,"errors":0,"startup_time":"379.417µs"}
+{"level":"debug","ts":"2025-08-16T00:12:31.862-0400","caller":"persistence/badger.store.go:35","msg":"writeRequests called. Writing to value log"}
+{"level":"debug","ts":"2025-08-16T00:12:31.862-0400","caller":"persistence/badger.store.go:35","msg":"Writing to memtable"}
+{"level":"debug","ts":"2025-08-16T00:12:31.862-0400","caller":"persistence/badger.store.go:35","msg":"Sending updates to subscribers"}
+{"level":"debug","ts":"2025-08-16T00:12:31.862-0400","caller":"persistence/badger.store.go:35","msg":"2 entries written"}
+{"level":"debug","ts":"2025-08-16T00:12:31.862-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"persistent","total_vectors":11}
+{"level":"info","ts":"2025-08-16T00:12:31.862-0400","caller":"engine/engine.go:136","msg":"Vector inserted successfully","id":"persistent","dimensions":128}
+{"level":"info","ts":"2025-08-16T00:12:31.862-0400","caller":"engine/engine.go:315","msg":"Stopping engine..."}
+{"level":"debug","ts":"2025-08-16T00:12:31.862-0400","caller":"persistence/badger.store.go:35","msg":"Closing database"}
+{"level":"info","ts":"2025-08-16T00:12:31.862-0400","caller":"persistence/badger.store.go:32","msg":"Lifetime L0 stalled for: 0s\n"}
+{"level":"debug","ts":"2025-08-16T00:12:31.862-0400","caller":"persistence/badger.store.go:35","msg":"Flushing memtable"}
+{"level":"debug","ts":"2025-08-16T00:12:31.862-0400","caller":"persistence/badger.store.go:35","msg":"pushed to flush chan\n"}
+{"level":"debug","ts":"2025-08-16T00:12:31.866-0400","caller":"persistence/badger.store.go:35","msg":"Stopping garbage collection of values."}
+{"level":"info","ts":"2025-08-16T00:12:31.867-0400","caller":"persistence/badger.store.go:32","msg":"\nLevel 0 [ ]: NumTables: 02. Size: 13 KiB of 0 B. Score: 1.00->100.00 StaleData: 0 B Target FileSize: 64 MiB\nLevel 1 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 2 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 3 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 4 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 5 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 6 [B]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel Done\n"}
+{"level":"debug","ts":"2025-08-16T00:12:31.867-0400","caller":"persistence/badger.store.go:35","msg":"Waiting for closer"}
+{"level":"info","ts":"2025-08-16T00:12:31.875-0400","caller":"engine/engine.go:324","msg":"Engine stopped successfully"}
+{"level":"info","ts":"2025-08-16T00:12:31.886-0400","caller":"persistence/badger.store.go:32","msg":"All 2 tables opened in 0s\n"}
+{"level":"info","ts":"2025-08-16T00:12:31.889-0400","caller":"persistence/badger.store.go:32","msg":"Discard stats nextEmptySlot: 0\n"}
+{"level":"info","ts":"2025-08-16T00:12:31.889-0400","caller":"persistence/badger.store.go:32","msg":"Set nextTxnTs to 11"}
+{"level":"info","ts":"2025-08-16T00:12:31.889-0400","caller":"persistence/badger.store.go:32","msg":"Deleting empty file: /var/folders/6r/jm1qnztn1gzby9df8c3kq9hw0000gn/T/TestCompleteFlow3184833518/001/000002.vlog"}
+{"level":"info","ts":"2025-08-16T00:12:31.890-0400","caller":"engine/engine.go:53","msg":"Starting vector engine, rebuilding HSNW index from storage. "}
+{"level":"debug","ts":"2025-08-16T00:12:31.890-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"persistent","total_vectors":1}
+{"level":"debug","ts":"2025-08-16T00:12:31.890-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec0","total_vectors":2}
+{"level":"debug","ts":"2025-08-16T00:12:31.890-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec1","total_vectors":3}
+{"level":"debug","ts":"2025-08-16T00:12:31.890-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec2","total_vectors":4}
+{"level":"debug","ts":"2025-08-16T00:12:31.890-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec3","total_vectors":5}
+{"level":"debug","ts":"2025-08-16T00:12:31.890-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec4","total_vectors":6}
+{"level":"debug","ts":"2025-08-16T00:12:31.890-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec5","total_vectors":7}
+{"level":"debug","ts":"2025-08-16T00:12:31.890-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec6","total_vectors":8}
+{"level":"debug","ts":"2025-08-16T00:12:31.890-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec7","total_vectors":9}
+{"level":"debug","ts":"2025-08-16T00:12:31.890-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec8","total_vectors":10}
+{"level":"debug","ts":"2025-08-16T00:12:31.890-0400","caller":"index/hnswIndex.go:97","msg":"Inserted vector into HNSW index","id":"vec9","total_vectors":11}
+{"level":"info","ts":"2025-08-16T00:12:31.890-0400","caller":"engine/engine.go:103","msg":"Engine started successfully","vectors_indexed":11,"errors":0,"startup_time":"375.459µs"}
+{"level":"info","ts":"2025-08-16T00:12:31.890-0400","caller":"engine/engine.go:315","msg":"Stopping engine..."}
+{"level":"debug","ts":"2025-08-16T00:12:31.890-0400","caller":"persistence/badger.store.go:35","msg":"Closing database"}
+{"level":"info","ts":"2025-08-16T00:12:31.890-0400","caller":"persistence/badger.store.go:32","msg":"Lifetime L0 stalled for: 0s\n"}
+{"level":"debug","ts":"2025-08-16T00:12:31.890-0400","caller":"persistence/badger.store.go:35","msg":"Stopping garbage collection of values."}
+{"level":"info","ts":"2025-08-16T00:12:31.891-0400","caller":"persistence/badger.store.go:32","msg":"\nLevel 0 [ ]: NumTables: 02. Size: 13 KiB of 0 B. Score: 1.00->100.00 StaleData: 0 B Target FileSize: 64 MiB\nLevel 1 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 2 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 3 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 4 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 5 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 6 [B]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel Done\n"}
+{"level":"debug","ts":"2025-08-16T00:12:31.891-0400","caller":"persistence/badger.store.go:35","msg":"Waiting for closer"}
+{"level":"info","ts":"2025-08-16T00:12:31.899-0400","caller":"engine/engine.go:324","msg":"Engine stopped successfully"}
+{"level":"info","ts":"2025-08-16T00:20:02.165-0400","caller":"persistence/badger.store.go:32","msg":"All 3 tables opened in 0s\n"}
+{"level":"info","ts":"2025-08-16T00:20:02.175-0400","caller":"persistence/badger.store.go:32","msg":"Discard stats nextEmptySlot: 0\n"}
+{"level":"info","ts":"2025-08-16T00:20:02.175-0400","caller":"persistence/badger.store.go:32","msg":"Set nextTxnTs to 10"}
+{"level":"info","ts":"2025-08-16T00:20:02.176-0400","caller":"persistence/badger.store.go:32","msg":"Deleting empty file: /Users/ishaanbajpai/Desktop/bitCamp/vectorDB/data/000008.vlog"}
+{"level":"info","ts":"2025-08-16T00:20:02.177-0400","caller":"engine/engine.go:53","msg":"Starting vector engine, rebuilding HSNW index from storage. "}
+{"level":"warn","ts":"2025-08-16T00:20:02.177-0400","caller":"persistence/badger.store.go:170","msg":"Failed to unmarshal vector","key":"1","error":"json: cannot unmarshal array into Go value of type types.Vector"}
+{"level":"warn","ts":"2025-08-16T00:20:02.177-0400","caller":"engine/engine.go:61","msg":"Skipping vector with wrong dimensions","id":"doc1","expected":128,"actual":3}
+{"level":"warn","ts":"2025-08-16T00:20:02.177-0400","caller":"engine/engine.go:61","msg":"Skipping vector with wrong dimensions","id":"doc2","expected":128,"actual":3}
+{"level":"warn","ts":"2025-08-16T00:20:02.177-0400","caller":"persistence/badger.store.go:170","msg":"Failed to unmarshal vector","key":"v:1","error":"json: cannot unmarshal array into Go value of type types.Vector"}
+{"level":"info","ts":"2025-08-16T00:20:02.177-0400","caller":"engine/engine.go:103","msg":"Engine started successfully","vectors_indexed":0,"errors":2,"startup_time":"231.5µs"}
+{"level":"info","ts":"2025-08-16T00:20:02.177-0400","caller":"engine/engine.go:136","msg":"Vector inserted successfully","id":"doc1","dimensions":128}
+{"level":"info","ts":"2025-08-16T00:20:02.177-0400","caller":"engine/engine.go:136","msg":"Vector inserted successfully","id":"doc2","dimensions":128}
+{"level":"info","ts":"2025-08-16T00:22:56.570-0400","caller":"vectordb/main.go:49","msg":"Shutdown signal received"}
+{"level":"info","ts":"2025-08-16T00:22:56.572-0400","caller":"engine/engine.go:315","msg":"Stopping engine..."}
+{"level":"info","ts":"2025-08-16T00:22:56.572-0400","caller":"persistence/badger.store.go:32","msg":"Lifetime L0 stalled for: 0s\n"}
+{"level":"info","ts":"2025-08-16T00:22:56.581-0400","caller":"persistence/badger.store.go:32","msg":"\nLevel 0 [ ]: NumTables: 02. Size: 1.0 KiB of 0 B. Score: 1.00->100.00 StaleData: 0 B Target FileSize: 64 MiB\nLevel 1 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 2 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 3 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 4 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 5 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel 6 [B]: NumTables: 02. Size: 354 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB\nLevel Done\n"}
+{"level":"info","ts":"2025-08-16T00:22:56.592-0400","caller":"engine/engine.go:324","msg":"Engine stopped successfully"}
