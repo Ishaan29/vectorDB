@@ -14,16 +14,11 @@ _Last updated: 2026-07-13_
 | `dev` | — | Integration branch |
 | `banchmark` | — | Benchmark work (merged to main via PR #6) |
 | `chore/ai-workflow` | `vectorDB/` (current) | This AI-workflow setup |
-| `maint/ci` | `../wt-ci` | GitHub Actions workflow (cgo + nocgo, amd64 + arm64) |
-| `maint/cleanup` | `../wt-cleanup` | Remove legacy brute-force scaffold and dead code |
-| `maint/config` | `../wt-config` | Portable relative paths in default config |
 
 ## In-flight work
 
 - **AI workflow setup** (`chore/ai-workflow`): skills, agents, specs,
   this file — pending PR.
-- **Three maint/ worktree branches** (ci, cleanup, config): committed
-  locally, pending PRs/merge.
 
 ## Recent decisions
 
@@ -41,10 +36,10 @@ _Last updated: 2026-07-13_
 - amd64 AVX2/FMA kernels with runtime dispatch — draft spec at
   [docs/specs/2026-07-avx2-dispatch.md](docs/specs/2026-07-avx2-dispatch.md);
   needs real amd64 hardware for benchmarks.
-- `internal/logger` hardcodes `../logs/vectordb.log` and panics (nil
-  logger) if `logs/` is missing — fix pending.
 - Consider insert-time vector normalization (cosine → dot product; halves
   FLOPs, changes stored-data semantics) — needs a spec.
-- Merge the three `maint/*` branches; note `maint/cleanup` removes the
-  legacy `db/`/`storage/` scaffold that CLAUDE.md still describes —
-  update CLAUDE.md when it lands.
+- Planned maintenance (branches not yet created): GitHub Actions CI
+  (cgo + nocgo, amd64 + arm64); remove the legacy `db/`/`storage/`
+  brute-force scaffold (update CLAUDE.md when it lands); portable
+  relative paths in the default config (`config.yaml` has absolute
+  macOS paths).
