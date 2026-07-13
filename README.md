@@ -287,7 +287,22 @@ index:
 
 database:
   max_vectors: 1000000
+
+logging:
+  level: info
+  encoding: json
+  output_paths:
+    - stdout
+    - logs/vectordb.log
+  dev_mode: false
+
+badger:
+  path: data
 ```
+
+Paths (`storage.path`, `badger.path`, file entries in
+`logging.output_paths`) are relative to the process working directory;
+missing directories are created on startup.
 
 ## Development
 ```bash

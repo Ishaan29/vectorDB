@@ -101,7 +101,9 @@ make clean
   locally and via `make docker-verify`
 
 ### Known quirks
-- `config.yaml` contains absolute macOS paths; tests use `t.TempDir()`
+- `config.yaml` uses relative paths (`data/`, `logs/`) resolved against the
+  process working directory — run binaries from the repo root (or pass an
+  absolute `-config` path and adjust the paths); tests use `t.TempDir()`
 
 ### Configuration System
 - Main config file: `config.yaml` (server host/port, storage path, index
