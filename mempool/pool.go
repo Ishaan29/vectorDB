@@ -2,8 +2,6 @@ package mempool
 
 import (
 	"fmt"
-	"math"
-	"sort"
 	"time"
 )
 
@@ -16,24 +14,6 @@ const (
 	SizeBased                           // Warm based on block sizes
 	HybridWarming                       // Combination of frequency and size
 )
-
-// SearchResult represents a search result with similarity score
-type SearchResult struct {
-	Block      *MemBlock
-	Similarity float32
-}
-
-// Error definitions
-var (
-	ErrInvalidK        = fmt.Errorf("k must be greater than 0")
-	ErrInvalidDataType = fmt.Errorf("invalid data type: expected []byte")
-)
-
-// Block represents a data block in memory
-type Block struct {
-	Header BlockHeader
-	Data   interface{}
-}
 
 func NewMemPool(config PoolConfig) (*MemPool, error) {
 	if config.InitialSize == 0 {
@@ -400,79 +380,4 @@ func (p *MemPool) TrackAllocation(size uint64) {
 		p.warmupStats.lastReset = time.Now()
 	}
 	p.warmupStats.frequency[size]++
-}
-
-// Search finds the k most similar blocks to the query vector
-func (p *MemPool) Search(query interface{}, k int) []Block {
-	p.mu.RLock()
-	defer p.mu.RUnlock()
-
-	queryBytes, ok := query.([]byte)
-	if !ok {
-		return nil
-	}
-
-	type Result struct {
-		block      Block
-		similarity float32
-	}
-
-	var results []Result
-
-	// Calculate similarities for all blocks
-	for _, memBlock := range p.block {
-		if !memBlock.Header.IsAllocated {
-			continue
-		}
-
-		blockData, ok := memBlock.Data.([]byte)
-		if !ok {
-			continue
-		}
-
-		similarity := p.calculateSimilarity(queryBytes, blockData)
-		block := Block{
-			Header: memBlock.Header,
-			Data:   memBlock.Data,
-		}
-		results = append(results, Result{block: block, similarity: similarity})
-	}
-
-	// Sort results by similarity in descending order
-	sort.Slice(results, func(i, j int) bool {
-		return results[i].similarity > results[j].similarity
-	})
-
-	// Return top k results
-	k = min(k, len(results))
-	topK := make([]Block, k)
-	for i := 0; i < k; i++ {
-		topK[i] = results[i].block
-	}
-
-	return topK
-}
-
-// calculateSimilarity computes the similarity between two byte slices
-func (p *MemPool) calculateSimilarity(a, b []byte) float32 {
-	// Simple cosine similarity implementation
-	if len(a) != len(b) {
-		return 0.0
-	}
-
-	var dotProduct float32
-	var normA float32
-	var normB float32
-
-	for i := 0; i < len(a); i++ {
-		dotProduct += float32(a[i]) * float32(b[i])
-		normA += float32(a[i]) * float32(a[i])
-		normB += float32(b[i]) * float32(b[i])
-	}
-
-	if normA == 0 || normB == 0 {
-		return 0.0
-	}
-
-	return dotProduct / (float32(math.Sqrt(float64(normA))) * float32(math.Sqrt(float64(normB))))
 }

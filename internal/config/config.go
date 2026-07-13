@@ -75,5 +75,14 @@ func DefaultConfig() *Config {
 		Database: DatabaseConfig{
 			MaxVectors: 1000000,
 		},
+		Logging: logger.Config{
+			Level:       "info",
+			Encoding:    "json",
+			OutputPaths: []string{"stdout"},
+			DevMode:     false,
+		},
+		Badger: BadgerConfig{
+			Path: "data",
+		},
 	}
 }

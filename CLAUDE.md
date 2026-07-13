@@ -86,10 +86,6 @@ make clean
 **API (`internal/api/`)**
 - Gin HTTP server (`cmd/vectordb-server`)
 
-**Legacy (`db/`, `storage/`)**
-- Older brute-force engine (linear scan + top-k heap), kept as scaffold;
-  its Search uses the batched `CosineSimilarityMany` kernel
-
 ### Conventions for the SIMD core
 - Never change `pkg/vectormath` public signatures; callers must not care
   which kernel is active
@@ -101,7 +97,9 @@ make clean
   locally and via `make docker-verify`
 
 ### Known quirks
-- `config.yaml` contains absolute macOS paths; tests use `t.TempDir()`
+- `config.yaml` uses relative paths (`data/`, `logs/`) resolved against the
+  process working directory — run binaries from the repo root (or pass an
+  absolute `-config` path and adjust the paths); tests use `t.TempDir()`
 
 ### Configuration System
 - Main config file: `config.yaml` (server host/port, storage path, index

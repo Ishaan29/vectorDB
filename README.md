@@ -24,7 +24,6 @@ vectorDB/
 │       ├── scalar/        #   pure-Go kernels (CGO_ENABLED=0 + parity reference)
 │       └── simd/          #   C++17 SIMD core via cgo (NEON on aarch64)
 ├── persistence/           # BadgerDB store
-├── db/, storage/          # Legacy brute-force engine + storage interfaces
 ├── proto/                 # Protocol buffer definitions
 ├── docs/                  # SIMD benchmark report
 ├── test/                  # Integration tests
@@ -142,9 +141,9 @@ A Go→C call costs roughly 40–50 ns. That fact shaped the API:
   per-pair call has to be cheap by itself. Fusion is the mitigation there.
 - *Paths we control do batch*: `CosineSimilarityBatch`/`CosineSimilarityMany`
   score one query against N vectors in a **single** crossing (flattened
-  row-major buffer, query norm computed once). The brute-force scan in
-  `db/engine.go` uses this — 10,000 vectors cost one crossing instead of
-  10,000, which is the 561 µs → 114 µs row in the tables.
+  row-major buffer, query norm computed once) — 10,000 vectors cost one
+  crossing instead of 10,000, which is the 561 µs → 114 µs row in the
+  tables.
 - *Zero allocations*: the fused kernel reports zero-norm inputs via a NaN
   sentinel instead of an out-pointer, because any Go pointer passed to C
   escapes to the heap — the sentinel keeps the hot path allocation-free.
@@ -158,7 +157,7 @@ reassociates float32 additions.
 
 ### Key design points
 
-- **Frozen public API** — every caller (`internal/index`, `db`, tests) is
+- **Frozen public API** — every caller (`internal/index`, tests) is
   untouched; the kernel swap is invisible above `pkg/vectormath`.
 - **Pure-Go fallback** — `CGO_ENABLED=0` builds and passes the full test
   suite anywhere Go runs, no C++ toolchain required.
@@ -287,7 +286,22 @@ index:
 
 database:
   max_vectors: 1000000
+
+logging:
+  level: info
+  encoding: json
+  output_paths:
+    - stdout
+    - logs/vectordb.log
+  dev_mode: false
+
+badger:
+  path: data
 ```
+
+Paths (`storage.path`, `badger.path`, file entries in
+`logging.output_paths`) are relative to the process working directory;
+missing directories are created on startup.
 
 ## Development
 ```bash
