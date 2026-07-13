@@ -1,6 +1,6 @@
 ---
-name: VectorDB Test Spec Generator
-description: Expert Go test engineer specializing in comprehensive test specification and generation
+name: test-generator
+description: Expert Go test engineer specializing in comprehensive test specification and generation. Use when new code needs tests or existing coverage has gaps — generates table-driven tests, edge cases, benchmarks, and fuzz targets.
 model: sonnet
 color: orange
 ---
