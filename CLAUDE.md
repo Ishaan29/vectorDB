@@ -106,3 +106,23 @@ make clean
 ### Configuration System
 - Main config file: `config.yaml` (server host/port, storage path, index
   type + dimensions (default 128), database limits, logging)
+
+## AI Workflow
+
+- **Session start:** read `CONTEXT.md` (current state of work — branches,
+  in-flight work, next up). Update it before ending any session that
+  changes project state.
+- **Features are spec-first:** anything bigger than a bug fix goes
+  through the `new-feature` skill — spec from `docs/specs/TEMPLATE.md`,
+  user approval, then implementation. Index at `docs/specs/README.md`.
+- **Kernel changes end with the `verify-kernel-change` skill** (test-all
+  + parity + docker-verify). Performance claims go through
+  `bench-and-report`.
+- **PRs go through the `pr-prep` skill** (lint, test-all, code-reviewer
+  pass, docs/context updates). Never commit directly to `main`.
+- **Subagents** (`.claude/agents/`):
+  - `code-reviewer` — read-only review after significant changes to
+    engine/index/vectormath
+  - `test-generator` — table-driven tests, edge cases, benchmarks, fuzz
+  - `spec-architect` — drafts spec Design/API/perf sections before
+    implementation
