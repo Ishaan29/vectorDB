@@ -22,6 +22,10 @@ func TestBadgerDBConnection(t *testing.T) {
 	// Keep the test hermetic: config.yaml's file sink would resolve
 	// relative to this package's directory during `go test`.
 	cfg.Logging.OutputPaths = []string{"stdout"}
+	// Likewise, don't share config.yaml's on-disk Badger directory between
+	// runs (it's an absolute, machine-specific path that doesn't exist on CI
+	// runners and leaks state across test invocations).
+	cfg.Badger.Path = t.TempDir()
 	log, err := logger.New(&cfg.Logging)
 	if err != nil {
 		t.Fatalf("failed to init logger: %v", err)
