@@ -42,7 +42,8 @@ Notes:
 | pure Go fused, batched | 1093 µs | 109 ns |
 
 The batched kernel amortizes the cgo crossing to nothing and lets the NEON
-loop stream; it is used by the brute-force scan in `db/engine.go`.
+loop stream; it is exposed as the public
+`CosineSimilarityBatch`/`CosineSimilarityMany` API.
 
 ## End-to-end HNSW (dim=128, M=16, efConstruction=200; count=3, benchtime=1000x)
 

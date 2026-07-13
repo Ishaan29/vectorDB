@@ -86,10 +86,6 @@ make clean
 **API (`internal/api/`)**
 - Gin HTTP server (`cmd/vectordb-server`)
 
-**Legacy (`db/`, `storage/`)**
-- Older brute-force engine (linear scan + top-k heap), kept as scaffold;
-  its Search uses the batched `CosineSimilarityMany` kernel
-
 ### Conventions for the SIMD core
 - Never change `pkg/vectormath` public signatures; callers must not care
   which kernel is active
