@@ -3,6 +3,7 @@ package db
 import (
 	"container/heap"
 	"log"
+	"math"
 	"sync"
 
 	"github.com/ishaan29/vectorDB/pkg/types"
@@ -78,9 +79,24 @@ func (engine *Engine) Search(query []float32, k int) ([]SearchResult, error) {
 		log.Printf("Failed to get all vectors: %v", err)
 		return nil, err
 	}
-	for _, v := range vectors {
-		similarity, err := vectormath.CosineSimilarity(query, v.Embedding)
-		if err != nil {
+
+	// Score every stored vector in a single batched kernel invocation (one
+	// cgo crossing when the SIMD core is active). Mismatched-dimension and
+	// zero-norm vectors come back as NaN and are skipped, matching the old
+	// per-vector error behavior.
+	embeddings := make([][]float32, len(vectors))
+	for i, v := range vectors {
+		embeddings[i] = v.Embedding
+	}
+	similarities, err := vectormath.CosineSimilarityMany(query, embeddings)
+	if err != nil {
+		log.Printf("Failed to score vectors: %v", err)
+		return nil, err
+	}
+
+	for i, v := range vectors {
+		similarity := similarities[i]
+		if math.IsNaN(float64(similarity)) {
 			continue // Skip vectors that can't be compared
 		}
 

@@ -12,6 +12,7 @@ import (
 	"github.com/ishaan29/vectorDB/internal/engine"
 	"github.com/ishaan29/vectorDB/internal/logger"
 	"github.com/ishaan29/vectorDB/pkg/types"
+	"github.com/ishaan29/vectorDB/pkg/vectormath"
 )
 
 func main() {
@@ -31,6 +32,8 @@ func main() {
 		os.Exit(1)
 	}
 	defer log.Sync()
+
+	log.Info("Vector math backend", logger.String("backend", vectormath.Backend()))
 
 	// Create and start engine
 	eng, err := engine.NewEngine(cfg, log)

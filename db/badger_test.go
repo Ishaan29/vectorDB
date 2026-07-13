@@ -19,6 +19,9 @@ func TestBadgerDBConnection(t *testing.T) {
 		t.Fatalf("Failed to load config: %v", err)
 	}
 	cfg.Logging.Level = "debug"
+	// Keep the test hermetic: config.yaml's file sink would resolve
+	// relative to this package's directory during `go test`.
+	cfg.Logging.OutputPaths = []string{"stdout"}
 	log, err := logger.New(&cfg.Logging)
 	if err != nil {
 		t.Fatalf("failed to init logger: %v", err)

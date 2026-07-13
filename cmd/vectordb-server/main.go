@@ -12,6 +12,7 @@ import (
 	"github.com/ishaan29/vectorDB/internal/config"
 	"github.com/ishaan29/vectorDB/internal/engine"
 	"github.com/ishaan29/vectorDB/internal/logger"
+	"github.com/ishaan29/vectorDB/pkg/vectormath"
 )
 
 func main() {
@@ -35,7 +36,8 @@ func main() {
 	log_instance.Info("Starting VectorDB HTTP Server",
 		logger.String("config", configPath),
 		logger.String("host", cfg.Server.Host),
-		logger.Int("port", cfg.Server.Port))
+		logger.Int("port", cfg.Server.Port),
+		logger.String("vectormath_backend", vectormath.Backend()))
 
 	// Initialize engine
 	eng, err := engine.NewEngine(cfg, log_instance)

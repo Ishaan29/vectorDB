@@ -6,45 +6,44 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### Building and Running
 ```bash
-# Build the project
+# Build the CLI (CGO_ENABLED=1, uses the C++ SIMD math core)
 make build
+
+# Build the pure-Go fallback binary (no C++ toolchain needed)
+make build-nocgo
+
+# Build the HTTP server
+make build-server
 
 # Run the built binary
 make run
 # or directly:
-./build/vectordb
-
-# Run with custom config
 ./build/vectordb -config path/to/config.yaml
 ```
 
 ### Testing and Quality
 ```bash
-# Run all tests
+# Run all tests with the C++ SIMD core
 make test
 
-# Run linting (requires golangci-lint)
+# Run all tests with the pure-Go fallback
+make test-nocgo
+
+# Both modes (do this before considering a change verified)
+make test-all
+
+# Benchmarks (vectormath kernels + HNSW end-to-end)
+make bench          # cgo/SIMD
+make bench-nocgo    # pure Go
+
+# Prove both CGO modes build and pass tests on Linux (arm64 + amd64)
+make docker-verify
+
+# Run linting (requires golangci-lint; needs CGO_ENABLED=1 to typecheck cgo)
 make lint
 
 # Clean build artifacts
 make clean
-```
-
-### Vector Operations via CLI
-```bash
-# Insert a vector
-./build/vectordb -insert "0.1,0.2,0.3" -id "vec1" -metadata "type=test,category=demo"
-
-# Search for similar vectors
-./build/vectordb -search "0.1,0.2,0.3" -k 5 -threshold 0.7
-
-# Combined operations work in sequence
-```
-
-### Protocol Buffers
-```bash
-# Generate protobuf files (when proto definitions exist)
-make proto
 ```
 
 ## Architecture Overview
@@ -52,53 +51,58 @@ make proto
 ### Core Components
 
 **Engine (`internal/engine/`)**
-- `engine.go`: Main vector database engine with in-memory storage using `map[string]types.Vector`
-- `search.go`: K-nearest neighbor search implementation using brute-force with priority queue
-- `errors.go`: Engine-specific error definitions
-- Thread-safe operations using `sync.RWMutex`
+- The live engine: orchestrates BadgerDB persistence + HNSW index
+- Dual-write pattern: BadgerDB first (durability), then HNSW (searchability)
+- Startup recovery rebuilds the index from persisted vectors
+- Thread-safe via `sync.RWMutex`
 
-**Vector Types (`pkg/types/`)**
-- `vector.go`: Core data structures for `Vector`, `SearchResult`, and vector math operations
-- Supports cosine similarity calculations
-- Metadata stored as `map[string]interface{}`
+**HNSW Index (`internal/index/`)**
+- Wraps `github.com/fogfish/hnsw`; distance injected via `CosineSurface`
+  (`hnswIndex.go`), which calls `vectormath.CosineDistance` per pairwise
+  comparison — this is the hottest code path in the system
+- Hardcoded params: M=16, efConstruction=200, efSearch=50 (adjustable via
+  `SetSearchEf`)
 
-**Configuration (`internal/config/`)**
-- YAML-based configuration system
-- Supports server, storage, index, database, and logging configuration
-- Default config available via `DefaultConfig()`
+**Vector Math (`pkg/vectormath/`) — SIMD core**
+- Public API (frozen signatures): `Dot`, `Magnitude`, `CosineSimilarity`,
+  `CosineDistance`, `EuclideanDistance`, `NormalizeVector`, plus batched
+  `CosineSimilarityBatch`/`CosineSimilarityMany`
+- Kernel dispatch by build tag:
+  - `kernels_cgo.go` (`//go:build cgo`) → `pkg/vectormath/simd` — C++17 core
+    bound via cgo; ARM NEON on aarch64, portable scalar C++ elsewhere
+  - `kernels_purego.go` (`//go:build !cgo`) → `pkg/vectormath/scalar` — pure
+    Go, always compiled, also serves as the parity reference for SIMD tests
+- Kernels are fused (cosine = one pass for dot + both norms = one cgo
+  crossing) and batched (1 query vs N vectors per crossing)
+- `vectormath.Backend()` reports the active implementation
+  (`cgo/neon`, `cgo/scalar`, `go/scalar`); logged at startup
+- Parity tests: `pkg/vectormath/simd/parity_cgo_test.go` (simd vs scalar,
+  epsilon-tolerance — float32 SIMD reassociation means exact equality is NOT
+  expected; keep all float assertions tolerance-based)
 
-**Memory Pool (`mempool/`)**
-- Cache management system with LRU eviction
-- Types and error handling for memory operations
-- Currently minimal implementation
+**Persistence (`persistence/`)**
+- BadgerDB store for full vectors + metadata
 
-**Storage Layer (`storage/`)**
-- Simple vector storage implementations
-- JSON-based persistence in `data/vectors.json`
-- No advanced indexing structures yet (HNSW planned)
+**API (`internal/api/`)**
+- Gin HTTP server (`cmd/vectordb-server`)
 
-### Data Flow
-1. Vectors are inserted via CLI or API into the Engine
-2. Engine validates dimensions against config
-3. Vectors stored in in-memory map and persisted to JSON
-4. Search performs brute-force similarity calculation across all vectors
-5. Results ranked by cosine similarity with configurable threshold
+**Legacy (`db/`, `storage/`)**
+- Older brute-force engine (linear scan + top-k heap), kept as scaffold;
+  its Search uses the batched `CosineSimilarityMany` kernel
+
+### Conventions for the SIMD core
+- Never change `pkg/vectormath` public signatures; callers must not care
+  which kernel is active
+- Validation/error logging stays in Go; C++ kernels are pure arithmetic
+  (no exceptions, no allocation, no retained pointers)
+- Every simd wrapper guards `len == 0` before taking `&slice[0]`
+- Batch APIs take flattened buffers ([][]float32 must never cross cgo)
+- Any kernel change must pass `make test-all` AND the parity tests, both
+  locally and via `make docker-verify`
+
+### Known quirks
+- `config.yaml` contains absolute macOS paths; tests use `t.TempDir()`
 
 ### Configuration System
-- Main config file: `config.yaml`
-- Supports runtime configuration of:
-  - Server host/port
-  - Storage path
-  - Index type and dimensions
-  - Database limits
-  - Logging configuration
-
-### Current Limitations
-- No advanced indexing (HNSW implementation planned)
-- JSON-based persistence (not production-ready)
-- Brute-force search only
-- No REST/gRPC API yet (CLI only)
-- No distributed features
-
-### Development Status
-This is an early-stage vector database implementation. See the comprehensive development checklist in README.md for planned features across 10 modules including persistence, APIs, distribution, and observability.
+- Main config file: `config.yaml` (server host/port, storage path, index
+  type + dimensions (default 128), database limits, logging)
