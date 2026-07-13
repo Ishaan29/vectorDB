@@ -23,15 +23,27 @@ type badgerLoggerAdapter struct {
 }
 
 func (b badgerLoggerAdapter) Errorf(msg string, args ...interface{}) {
+	if b.l == nil {
+		return
+	}
 	b.l.Error(fmt.Sprintf(msg, args...))
 }
 func (b badgerLoggerAdapter) Warningf(msg string, args ...interface{}) {
+	if b.l == nil {
+		return
+	}
 	b.l.Warn(fmt.Sprintf(msg, args...))
 }
 func (b badgerLoggerAdapter) Infof(msg string, args ...interface{}) {
+	if b.l == nil {
+		return
+	}
 	b.l.Info(fmt.Sprintf(msg, args...))
 }
 func (b badgerLoggerAdapter) Debugf(msg string, args ...interface{}) {
+	if b.l == nil {
+		return
+	}
 	b.l.Debug(fmt.Sprintf(msg, args...))
 }
 

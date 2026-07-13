@@ -1,0 +1,22 @@
+# Ignore rules for Dockerfile.verify ONLY (BuildKit per-Dockerfile ignore).
+# Unlike the top-level .dockerignore, tests MUST be included here — the whole
+# point of the verify image is running the test suite on Linux.
+.git
+.gitignore
+.vscode/
+.cursor/
+.idea/
+.claude/
+build/
+vectordb
+vectordb-server
+*.exe
+logs/
+*.log
+tmp/
+temp/
+data/
+docker-compose*
+node_modules/
+.DS_Store
+Thumbs.db

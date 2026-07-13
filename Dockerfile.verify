@@ -1,0 +1,23 @@
+# Build-verification image: proves the cgo C++ SIMD core compiles and the
+# full test suite passes on Linux, in both CGO modes. Not a deployment image.
+#
+# Usage (see `make docker-verify`):
+#   docker build -f Dockerfile.verify --platform linux/arm64 .   # NEON path
+#   docker build -f Dockerfile.verify --platform linux/amd64 .   # scalar C++ path
+FROM golang:1.25-bookworm
+
+# golang:bookworm ships gcc/g++, which cgo uses on Linux.
+WORKDIR /src
+
+COPY go.mod go.sum ./
+RUN go mod download
+
+COPY . .
+
+# Test with the C++ SIMD core, then with the pure-Go fallback.
+RUN CGO_ENABLED=1 go test ./...
+RUN CGO_ENABLED=0 go test ./...
+
+# Ensure both binaries link.
+RUN CGO_ENABLED=1 go build -o /tmp/vectordb ./cmd/vectordb && \
+    CGO_ENABLED=0 go build -o /tmp/vectordb-nocgo ./cmd/vectordb

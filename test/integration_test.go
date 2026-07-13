@@ -28,11 +28,14 @@ func TestCompleteFlow(t *testing.T) {
 		},
 	}
 
-	log, _ := logger.New(&logger.Config{
+	log, err := logger.New(&logger.Config{
 		Level:       "debug",
 		Encoding:    "json",
 		OutputPaths: []string{"stdout"},
 	})
+	if err != nil {
+		t.Fatalf("failed to init logger: %v", err)
+	}
 
 	ctx := context.Background()
 

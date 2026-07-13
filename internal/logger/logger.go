@@ -1,6 +1,10 @@
 package logger
 
 import (
+	"fmt"
+	"os"
+	"path/filepath"
+	"strings"
 	"time"
 
 	"go.uber.org/zap"
@@ -36,11 +40,20 @@ func New(cfg *Config) (Logger, error) {
 		return nil, err
 	}
 
-	var outputLogs []string
-	if cfg.Level == "debug" {
-		outputLogs = []string{"../logs/vectordb.log"}
-	} else {
-		outputLogs = cfg.OutputPaths
+	outputLogs := cfg.OutputPaths
+	if len(outputLogs) == 0 {
+		outputLogs = []string{"stdout"}
+	}
+	// zap fails to open a file sink whose directory doesn't exist.
+	for _, p := range outputLogs {
+		if p == "stdout" || p == "stderr" || strings.Contains(p, "://") {
+			continue
+		}
+		if dir := filepath.Dir(p); dir != "." {
+			if err := os.MkdirAll(dir, 0o755); err != nil {
+				return nil, fmt.Errorf("create log directory %q: %w", dir, err)
+			}
+		}
 	}
 
 	zapConfig := zap.Config{

@@ -134,14 +134,18 @@ func (h *HNSWIndex) Search(query []float32, k int) ([]SearchResult, error) {
 	// Convert to our result format
 	results := make([]SearchResult, 0, len(neighbors))
 	for _, vec := range neighbors {
-		// Calculate distance and similarity
-		distance, _ := vectormath.CosineDistance(query, vec.Embedding)
-		similarity, _ := vectormath.CosineSimilarity(query, vec.Embedding)
+		// One fused distance computation per neighbor; similarity is derived
+		// (similarity = 1 - cosine distance) instead of recomputed.
+		distance, err := vectormath.CosineDistance(query, vec.Embedding)
+		if err != nil {
+			// Skip neighbors we cannot score (dimension mismatch / zero vector).
+			continue
+		}
 
 		results = append(results, SearchResult{
 			ID:       vec.ID,
 			Distance: float64(distance),
-			Score:    float64(similarity),
+			Score:    float64(1 - distance),
 		})
 	}
 
