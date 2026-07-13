@@ -3,7 +3,7 @@ server:
   port: 8080
 
 storage:
-  path: /Users/ishaanbajpai/Desktop/bitCamp/vectorDB/data
+  path: data
 
 index:
   type: hnsw
@@ -18,7 +18,7 @@ logging:
   output_paths:
     - stdout
     - logs/vectordb.log
-  dev_mode: false 
+  dev_mode: false
 
 badger:
-  path: /Users/ishaanbajpai/Desktop/bitCamp/vectorDB/data
+  path: data
